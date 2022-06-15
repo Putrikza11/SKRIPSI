@@ -1,0 +1,10 @@
+.bg-overlay {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+
+    @apply bg-gradient-to-b from-transparent via-slate-100 to-slate-200 dark:via-slate-800 dark:to-dark opacity-50 dark:opacity-70;
+}

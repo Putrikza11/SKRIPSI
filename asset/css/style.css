@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
-body{
-  font-family: 'Montserrat';
+html,body{
+  font-family: 'Montserrat', sans-serif !important;
 }
 .container-fluid{
       background: linear-gradient(90deg,#DEC6D8,white);
@@ -32,8 +33,8 @@ body{
 
 /* JUMBOTRON */
 .banner{
-  height: 100vh;
-  background: url(image/alfabel.jpeg);
+  height: 90vh;
+  /* background: url(../image/alfabel.jpeg); */
   background-size: cover;
   background-position: bottom;
 }
@@ -53,10 +54,21 @@ body{
   line-height: 26px;
   font-family: 'Montserrat';
 }
+
+.bg-gradient-custom {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+ 
+}
+
 /* MATERIAL */
 #banner-material{
   height: 90vh;
-  background: url(image/material.png);
+  background: url(../image/material.png);
   background-size: cover;
 }
 #banner-material h1{
@@ -68,16 +80,19 @@ body{
   background-color: white;
 }
 .features{
-  padding: 129px 134px;
+  /* padding: 129px 134px; */
+  /* padding: 130px auto; */
+  
+ 
 }
 .features h4{
   font-size: 40px;
   color: #121212;
 }
 .features p{
-  font-size: 30px;
+  font-size: 28px;
   line-height: 45px;
-  width: 774px;
+  /* width: 774px; */
   color: #4A4848;
 }
 /* OUR SERVICE */
@@ -196,7 +211,7 @@ background: linear-gradient(160deg, white ,#DEC6D8);
 .left{
   width: 556px;
   height: 556px;
-  background-image: url(image/ivory.jpg);
+  background-image: url(../image/ivory.jpg);
   background-size: cover;
   border-radius: 8px;
 }
@@ -252,10 +267,10 @@ background: linear-gradient(160deg, white ,#DEC6D8);
   background-repeat: no-repeat;
 }
 .doff{
-  background-image: url(image/doff.png);
+  background-image: url(../image/doff.png);
 }
 .glossy{
-  background-image: url(image/glossy.png);
+  background-image: url(../image/glossy.png);
 }
 
 .text{
