@@ -7,7 +7,7 @@
     <?php require_once './component/head.php'; ?>
 
 
-    <title>Hello, world!</title>
+    <title>Home</title>
 </head>
 
 <body>
@@ -19,9 +19,9 @@
 
         <!-- JUMBOTRON banner-->
         <div class="image-wrapper relative banner overflow-hidden	">
-            <img src="./asset/image/alfabel.jpeg" alt="usni_image_hero" class="w-full  object-cover object-bottom h-100 ">
+            <img src="./asset/image/alfabel.jpeg" alt="usni_image_hero" class="w-full  object-cover object-bottom h-100 " loading='lazy'>
 
-            <div class=" bg-gradient-custom bg-gradient-to-r from-white opacity-80"></div>
+            <div class=" bg-gradient-custom bg-gradient-to-r from-white opacity-90"></div>
 
             <div class="bg-gradient-custom  search-bar-wrapper  h-full w-full flex flex-wrap flex-col justify-center p-0">
                 <div class="col-md-6 my-auto container tagline">
@@ -71,7 +71,7 @@
                 <div class="card-group">
                     <div class="col-md-3">
                         <div class="card shadow !rounded-none border-2 border-t-[#7D1D64] h-full p-3 ">
-                            <img src="./asset/image/bahan.png" class="card-img-top w-20 object-fit-cover block mx-auto" alt="...">
+                            <img src="./asset/image/bahan.png" class="card-img-top w-20 object-fit-cover block mx-auto" alt="..." loading='lazy'>
                             <h5 class="title-card text-center">Bahan utama</h5>
                             <div class="card-body">
                                 <p class="card-text text-center">
@@ -84,7 +84,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="card shadow !rounded-none border-2 border-t-[#7D1D64] h-full p-3 ">
-                            <img src="./asset/image/laminasi.png" class="card-img-top w-20 object-fit-cover block mx-auto" alt="...">
+                            <img src="./asset/image/laminasi.png" class="card-img-top w-20 object-fit-cover block mx-auto" alt="..." loading='lazy'>
                             <h5 class="title-card text-center">Laminasi</h5>
                             <div class="card-body">
                                 <p class="card-text text-center">Membuat tampilan kertas
@@ -97,7 +97,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="card shadow !rounded-none border-2 border-t-[#7D1D64] h-full p-3 ">
-                            <img src="./asset/image/model.png" class="card-img-top w-20 object-fit-cover block mx-auto" alt="...">
+                            <img src="./asset/image/model.png" class="card-img-top w-20 object-fit-cover block mx-auto" alt="..." loading='lazy'>
                             <h5 class="title-card text-center">Model Kemasan</h5>
                             <div class="card-body">
                                 <p class="card-text text-center">Berbagai bentuk yang kamu ingin
@@ -110,7 +110,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="card shadow !rounded-none border-2 border-t-[#7D1D64] h-full p-3 ">
-                            <img src="./asset/image/gambar.png" class="card-img-top w-20 object-fit-cover block mx-auto" alt="...">
+                            <img src="./asset/image/gambar.png" class="card-img-top w-20 object-fit-cover block mx-auto" alt="..." loading='lazy'>
                             <h5 class="title-card text-center">Contoh Produk</h5>
                             <div class="card-body">
                                 <p class="card-text text-center">Beberapa contoh produk yang di custom
@@ -132,50 +132,58 @@
         <!-- END SERVICE -->
 
         <!-- ORDER -->
-        <div class="container">
-            <div class="row mt-5">
-                <div class="title-order text-center">
-                    <h4>HOW TO ORDER?</h4>
-                </div>
-            </div>
-            <div class="row content-order text-center">
-                <div class="col ">
-                    <img src="./asset/image/form.png" class="card-img-top w-20 object-fit-cover block mx-auto" alt="...">
-                </div>
-                <div class="col">
-                    <img src="./asset/image/chat.png" class="card-img-top" alt="...">
-                </div>
-                <div class="col">
-                    <img src="./asset/image/buy.png" class="card-img-top" alt="...">
-                </div>
-                <div class="col">
-                    <img src="./asset/image/produksi.png" class="card-img-top" alt="...">
-                </div>
-                <div class="col">
-                    <img src="./asset/image/shipping.png" class="card-img-top" alt="...">
-                </div>
-            </div>
-            <div class="row content-order text-center">
-                <div class="col ">
-                    <h6>Mengisi form sesuai pesanan</h6>
-                </div>
-                <div class="col">
-                    <h6>Konsultasi Desain</h6>
-                </div>
-                <div class="col">
-                    <h6>Melakukan Pembayaran Uang Muka</h6>
-                </div>
-                <div class="col">
-                    <h6>Proses Produksi</h6>
-                </div>
-                <div class="col">
-                    <h6>Produk siap dikirim</h6>
+
+        <!-- component -->
+        <div class="my-40 px-5">
+            <div class="mx-4 p-4">
+                <div class="flex items-center">
+                    <div class="flex items-center text-fuchsia-700 relative">
+                        <div class="rounded-full transition duration-500 ease-in-out h-20 w-20 py-3 border-2 border-fuchsia-700">
+                            <i class="fa-solid fa-file-lines block mx-auto w-fit text-4xl"></i>
+                        </div>
+                        <div class="absolute top-0 -ml-6 text-center mt-[5.5rem] w-32 text-sm font-medium uppercase text-fuchsia-700">1. Mengisi form sesuai pesanan</div>
+                    </div>
+
+                    <div class="flex-auto border-t-2 transition duration-500 ease-in-out border-fuchsia-700"></div>
+
+                    <div class="flex items-center text-fuchsia-700 relative">
+                        <div class="rounded-full transition duration-500 ease-in-out h-20 w-20 py-3 border-2  border-fuchsia-700">
+                            <i class="fa-solid fa-headset block mx-auto w-fit text-4xl"></i>
+                        </div>
+                        <div class="absolute top-0 -ml-6 text-center mt-[5.5rem] w-32 text-sm font-medium uppercase text-fuchsia-700">2. Konsultasi Desain</div>
+                    </div>
+
+                    <div class="flex-auto border-t-2 transition duration-500 ease-in-out border-fuchsia-700"></div>
+
+                    <div class="flex items-center text-fuchsia-700 relative">
+                        <div class="rounded-full transition duration-500 ease-in-out h-20 w-20 py-3 border-2 border-fuchsia-700">
+                            <i class="fa-solid fa-money-bill-transfer  block mx-auto w-fit text-4xl"></i>
+                        </div>
+                        <div class="absolute top-0 -ml-6 text-center mt-[5.5rem] w-32 text-sm font-medium uppercase text-fuchsia-700">3. Pembayaran Uang Muka</div>
+                    </div>
+
+                    <div class="flex-auto border-t-2 transition duration-500 ease-in-out border-fuchsia-700"></div>
+
+                    <div class="flex items-center text-fuchsia-700 relative">
+                        <div class="rounded-full transition duration-500 ease-in-out h-20 w-20 py-3 border-2 border-fuchsia-700">
+                            <i class="fa-solid fa-pen-ruler block mx-auto w-fit text-4xl"></i>
+                        </div>
+                        <div class="absolute top-0 -ml-6 text-center mt-[5.5rem] w-32 text-sm font-medium uppercase text-fuchsia-700">4. Proses Produksi</div>
+                    </div>
+
+                    <div class="flex-auto border-t-2 transition duration-500 ease-in-out border-fuchsia-700"></div>
+                    <div class="flex items-center text-fuchsia-700 relative">
+                        <div class="rounded-full transition duration-500 ease-in-out h-20 w-20 py-3 border-2 border-fuchsia-700">
+                            <i class="fa-solid fa-truck-fast block mx-auto w-fit text-4xl"></i>
+                        </div>
+                        <div class="absolute top-0 -ml-6 text-center mt-[5.5rem] w-32 text-sm font-medium uppercase text-fuchsia-700">5.Produk siap dikirim</div>
+                    </div>
                 </div>
             </div>
 
         </div>
-        <!-- END ORDER -->
 
+        <!-- END ORDER -->
         <!-- CTA -->
         <div class="container pb-5">
             <div class="row CTA mt-5 text-center">
@@ -185,10 +193,9 @@
                 <div class="col text-center">
                     <a href="">
                         <button class="btn btn-CTA btn-light fs-4 border border-2 bg-white
-                         border-secondary" style="border-radius: 20px; font-weight: bold;" type="submit">Cek Harga</button>
+                         border-secondary text-slate-800" style="border-radius: 20px; font-weight: bold;" type="submit">Cek Harga</button>
                     </a>
                 </div>
-
             </div>
         </div>
         <!-- END CTA -->
@@ -196,35 +203,11 @@
     </main>
 
     <!-- FOOTER -->
-    <div class="container footer ">
 
-        <div class="row mx-4 py-6">
-            <div class="col">
-                <img src="./asset/image/logo-ungu.png" alt="" width="50px">
-                <div class="row">
-                    <p>Jl. Kebayoran Lama No.17, Jakarta selatan</p>
-                </div>
-            </div>
-            <div class="col text-center">
-                <p>About us</p>
-            </div>
-            <div class="col text-center">
-                <p>Product</p>
-            </div>
-            <div class="col">
-                <p>custom.kahta@gmail.com</p>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-whatsapp"></i></a>
+    <?php require_once './component/footer.php'; ?>
 
-            </div>
-        </div>
-    </div>
+
     <!-- END FOOTER -->
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 
 </body>
