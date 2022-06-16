@@ -19,7 +19,7 @@
 
         <!-- JUMBOTRON banner-->
         <div class="image-wrapper relative banner overflow-hidden	">
-            <img src="./asset/image/alfabel.jpeg" alt="usni_image_hero" class="w-full  object-cover object-bottom h-100 " loading='lazy'>
+            <img src="./asset/img/alfabel.jpeg" alt="usni_image_hero" class="w-full  object-cover object-bottom h-100 " loading='lazy'>
 
             <div class=" bg-gradient-custom bg-gradient-to-r from-white opacity-90"></div>
 

@@ -12,7 +12,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col">
-        <img src="./asset/image/Mobile login-amico.png" alt="image" width="800" loading='lazy'>
+        <img src="./asset/img/Mobile login-amico.png" alt="image" width="800" loading='lazy'>
       </div>
       <!-- FORM BOX -->
       <div class="col p-5">

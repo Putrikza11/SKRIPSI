@@ -145,7 +145,7 @@
                     <div class="container">
                         <div class="d-flex justify-content-center align-items-center">
                             <div class="image-model">
-                                <img src="./asset/image/bone.jpeg" loading='lazy' alt="">
+                                <img src="./asset/img/bone.jpeg" loading='lazy' alt="">
                             </div>
                             <div class="content-model">
                                 <h6>Spesifikasi</h6>
@@ -164,7 +164,7 @@
                     <div class="container">
                         <div class="d-flex justify-content-center align-items-center">
                             <div class="image-model">
-                                <img src="./asset/image/dhary.jpeg" loading='lazy' alt="">
+                                <img src="./asset/img/dhary.jpeg" loading='lazy' alt="">
                             </div>
                             <div class="content-model">
                                 <h6>Spesifikasi</h6>
@@ -183,7 +183,7 @@
                     <div class="container">
                         <div class="d-flex justify-content-center align-items-center">
                             <div class="image-model">
-                                <img src="./asset/image/amora.jpeg" loading='lazy' alt="">
+                                <img src="./asset/img/amora.jpeg" loading='lazy' alt="">
                             </div>
                             <div class="content-model">
                                 <h6>Spesifikasi</h6>
@@ -200,10 +200,10 @@
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                <img src="./asset/image/arrow-left.png " loading='lazy' alt="">
+                <img src="./asset/img/arrow-left.png " loading='lazy' alt="">
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                <img src="./asset/image/arrow-right.png " loading='lazy' alt="">
+                <img src="./asset/img/arrow-right.png " loading='lazy' alt="">
             </button>
         </div>
     </section>

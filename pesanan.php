@@ -17,7 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top " >
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="image/logo-putih.png" alt="kahta" width="auto" height="30px" >
+                <img src="./asset/image/logo-putih.png" alt="kahta" width="auto" height="30px" >
             </a>
            
        <div class="collapse navbar-collapse " id="navbarNavDropdown">
@@ -104,30 +104,8 @@
         </div>
        <hr>
      <!-- FOOTER -->
-    <div class="container footer">
-       
-        <div class="row mx-4">
-            <div class="col">
-                <img src="image/logo-ungu.png" alt="" width="50px">
-                <div class="row">
-                    <p>Jl. Kebayoran Lama No.17, Jakarta selatan</p>
-                </div>
-            </div>
-            <div class="col text-center">
-                <p>About us</p>
-            </div>
-            <div class="col text-center">
-                <p>Product</p>
-            </div>
-            <div class="col">
-               <p>custom.kahta@gmail.com</p>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-whatsapp"></i></a> 
-              
-            </div>
-        </div>
-    </div>
+        <?php require_once './component/footer.php'; ?>
+
     <!-- END FOOTER -->
     </div>
     <!-- END CONTENT -->
