@@ -7,20 +7,22 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link <?= $_SERVER['REQUEST_URI'] == '/' ? 'active' : '' ?> " aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="material.html">Material Product</a>
+                    <a class="nav-link <?= $_SERVER['REQUEST_URI'] == '/material.php' ? 'active' : '' ?> " href="material.php">Material Product</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="order.html">Custom Order</a>
+                    <a class="nav-link  <?= $_SERVER['REQUEST_URI'] == '/order.php' ? 'active' : '' ?>" href="order.php">Custom Order</a>
+
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <form class="d-flex">
-                        <a class="nav-link me-3" href="login.html">Login</a>
-                        <button class="btn btn-light text-[#A25E91] bg-white " type="submit">Registrasi</button>
+                        <a class="nav-link me-3" href="login.php">Login</a>
+                        <a class="nav-link me-3 btn hover:text-fuchsia-900 text-[#A25E91] bg-white " href="registrasi.php">Registrasi</a>
+
                     </form>
                 </li>
             </ul>

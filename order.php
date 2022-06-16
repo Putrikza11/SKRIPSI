@@ -1,67 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Order</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+<head>
+    <?php require_once './component/head.php'; ?>
+
+    <title>Custom Order</title>
+
 </head>
+
 <body>
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark " >
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="image/logo-putih.png" alt="kahta" width="auto" height="30px" >
-            </a>
-           
-       <div class="collapse navbar-collapse " id="navbarNavDropdown">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="material.html">Material Product</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="order.html">Custom Order</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Akun Saya
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="pesanan.html">Pesanan Saya</a></li>
-                        <li><a class="dropdown-item" href="EditAkun.html">Detail Akun</a></li>
-                    </ul>
-                </li>
-            </ul>
-             <ul class="navbar-nav ms-auto">
-                 <li class="nav-item">
-                      <form class="d-flex">
-                        <button class="btn btn-light" style="color: #A25E91;" type="submit">Logout</button>
-                        </form>
-                </li>
-            </ul>
-        </div>
-        </div>
-    </nav>
+    <?php require_once './component/navbar.php'; ?>
+
     <!-- END NAVBAR -->
 
     <div class="container-fluid">
-        <div class="row d-flex justify-content-center ">
-            <div class="col-md-6" >
+        <div class="row d-flex justify-content-center  py-10">
+            <div class="col-md-6">
                 <div class="form-box p-5 mt-5">
                     <div class="title-order">
                         <h2 style="color: #7D1D64;">CUSTOM ORDER!</h2>
                         <P>Lihat detail Bahan dan produk <a href="material.html">Klik disini</a></P>
                     </div>
-                    <div class="input-order" >
+                    <div class="input-order">
                         <form class="row g-3">
                             <div class="col-md-6">
                                 <label for="inputBrand" class="form-label">Nama Brand</label>
@@ -82,10 +43,10 @@
                                     <option>Bahan Duplex 350gr</option>
                                 </select>
                             </div>
-                
+
                             <label for="inputUkuran" class="form-label">Ukuran (cm)</label>
-                            
-                            
+
+
                             <div class="col-md-2">
                                 <input type="text" class="form-control" id="inputPanjang" placeholder="Panjang">
                             </div>
@@ -113,9 +74,9 @@
                                     <option>Laminasi doff 2 sisi</option>
                                 </select>
                             </div>
-                           <div class="col-md-2">
-                             <label for="inputQty" class="form-label">Quantity</label>
-                             <input type="text" class="form-control" id="inputQty" placeholder="500">
+                            <div class="col-md-2">
+                                <label for="inputQty" class="form-label">Quantity</label>
+                                <input type="text" class="form-control" id="inputQty" placeholder="500">
                             </div>
                             <div class="col-12">
                                 <button type="submit" class="btn btn-primary">Cek Harga</button>
@@ -130,8 +91,10 @@
         </div>
     </div>
 
-   
+    <?php require_once './component/footer.php'; ?>
 
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
 </body>
+
 </html>
