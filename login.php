@@ -9,7 +9,10 @@
 </head>
 
 <body>
+  <!-- NAVBAR -->
+  <?php require_once './component/navbar.php'; ?>
 
+  <!-- END NAVBAR -->
   <div class="container-fluid">
     <div class="row justify-content-center align-items-center inner-row">
       <div class="col-md-5">

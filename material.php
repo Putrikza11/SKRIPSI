@@ -15,9 +15,9 @@
     <!-- END NAVBAR -->
 
     <!-- JUMBOTRON -->
-    <div class="container-fluid" id="banner-material">
-        <div class="row align-items-end">
-            <div class="col-md-6 my-5">
+    <div class="container-fluid !bg-bottom" id="banner-material">
+        <div class="row align-items-end h-full container mx-auto">
+            <div class="col my-5 ">
                 <h1 class="fw-semibold ">MATERIAL PRODUCT</h1>
             </div>
         </div>
@@ -217,7 +217,7 @@
 
 
 
-   
+
 </body>
 
 </html>

@@ -17,9 +17,20 @@
       <!-- FORM BOX -->
       <div class="col p-5">
         <div class="form-box p-5">
-          <div class="form-title">
-            <h2 class="title text-center">REGISTRASI</h2>
+          <div class="row">
+            <div class="col text-end">
+              <a href="index.php"><i class="fa-solid fa-circle-xmark fa-2x"></i></a>
+            </div>
           </div>
+          <div class="form-title">
+
+            <div class="row">
+              <div class="col">
+                <h2 class="title text-center text-4xl pb-7	">REGISTRASI</h2>
+              </div>
+            </div>
+          </div>
+
           <!-- FORM INPUT -->
           <form class="row g-3">
             <div class="col-md-6">
