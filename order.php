@@ -7,7 +7,6 @@ if (isset($_POST["btn-pesan"])) {
     if (!isset($_SESSION["login"])) {
         header("Location: login.php");
     }
-
 }
 ?>
 
@@ -76,15 +75,16 @@ if (isset($_POST["btn-pesan"])) {
                                     <label for="inputUkuran" class="form-label">Ukuran (cm)</label>
                                     <div class="input-wrapper w-full flex justify-between">
                                         <div class="col-md-4 pr-[10px]">
-                                            <input type="text" class="form-control" id="inputPanjang" placeholder="Panjang">
+                                            <input type="number" class="form-control" id="inputPanjang" placeholder="Panjang">
                                         </div>
                                         <div class="col-md-4 px-[10px]">
-                                            <input type="text" class="form-control" id="inputLebar" placeholder="Lebar">
+                                            <input type="number" class="form-control" id="inputLebar" placeholder="Lebar">
                                         </div>
                                         <div class="col-md-4 pl-[10px]">
-                                            <input type="text" class="form-control" id="inputTinggi" placeholder="Tinggi">
+                                            <input type="number" class="form-control" id="inputTinggi" placeholder="Tinggi">
                                         </div>
                                     </div>
+                                    <span>Ukuran bahan : </span>
 
                                 </div>
 
