@@ -68,7 +68,7 @@ html,body{
 /* MATERIAL */
 #banner-material{
   height: 90vh;
-  background: url(../image/material.png);
+  background: url(../img/box.jpg);
   background-size: cover;
 }
 #banner-material h1{
@@ -209,15 +209,17 @@ background: linear-gradient(160deg, white ,#DEC6D8);
   align-items: center;
  
 }
+.sub-title{
+  font-weight: 500;
+}
 .left{
-  width: 556px;
-  height: 556px;
-  background-image: url(../image/ivory.jpg);
+  width: 500px;
+  height: 500px;
   background-size: cover;
   border-radius: 8px;
 }
 .right{
-  width: 399px;
+  width: 350px;
   display: flex;
   align-items: center;
   justify-content: start;
@@ -227,24 +229,19 @@ background: linear-gradient(160deg, white ,#DEC6D8);
   background-color: #A25E91;
 }
 .deskripsi{
-  padding-left: 42px;
+  padding-left: 30px;
+  font-weight: 300;
 }
-.right img{
-  width: 556px;
-  height: 556px;
-  margin-left: 100px;
+.right-kraft{
+  width: 500px;
+  height: 500px;
+  background-size: cover;
+  border-radius: 8px;
 
 
 }
 .left-kraft{
-   width: 399px;
-   height: 355px;
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  margin-left: 100px;
- color: white;
-  background-color: #A25E91;
+  
 }
 .right-kraft{
   width: 556px;

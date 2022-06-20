@@ -25,21 +25,26 @@
     <!-- END JUMBOTRON -->
 
     <!-- CONTENT 1 -->
-    <div class="container" id="content-bahan">
+    <div class="container mx-auto py-[130px]" id="content-bahan">
+
         <div class="left">
+            <img src="./asset/img/ivory.jpg" alt="">
         </div>
         <div class="right ">
             <div class="deskripsi py-3">
-                <p><strong>Ketebalan (gramasi)</strong></p>
+                <div class="text-center pb-2 font-bold">
+                    <h5>BAHAN IVORY</h5>
+                </div>
+                <p class="sub-title">Ketebalan (gramasi)</p>
                 <p>270gr 350gr 300gr</p>
 
-                <p> <strong>Food grade</strong> </p>
+                <p class="sub-title">Food grade </p>
                 <p> aman untuk jenis makanan</p>
 
-                <p><strong>Warna</strong> </p>
+                <p class="sub-title">Warna</p>
                 <p>dapat cetak warna sisi luar dan dalam </p>
 
-                <p><strong>Rekomendasi Penggunaan</strong> </p>
+                <p class="sub-title">Rekomendasi Penggunaan </p>
                 <p>Kemasan Makanan berminyak</p>
                 <p>Kemasan Kosmetik</p>
                 <p> Paperbag</p>
@@ -51,25 +56,28 @@
     <!-- CONTENT 2 -->
     <div class="container">
         <div class="row justify-content-end">
-            <div class="col-4 left-kraft" style="background-color: red;">
+            <div class="col-4 left-kraft">
                 <div class="deskripsi-kraft">
-                    <p><strong>Ketebalan (gramasi)</strong></p>
+                    <div class="text-center pb-2 font-bold">
+                        <h5>BAHAN IVORY</h5>
+                    </div>
+                    <p class="sub-title">Ketebalan (gramasi)</p>
                     <p>270gr 350gr 300gr</p>
 
-                    <p> <strong>Food grade</strong> </p>
+                    <p class="sub-title">Food grade </p>
                     <p>aman untuk jenis makanan</p>
 
-                    <p><strong>Warna</strong> </p>
+                    <p class="sub-title">Warna </p>
                     <p>dapat cetak warna sisi luar dan dalam</p>
 
-                    <p><strong>Rekomendasi Penggunaan</strong> </p>
+                    <p class="sub-title">Rekomendasi Penggunaan</p>
                     <p>Kemasan Makanan berminyak</p>
                     <p> Kemasan Kosmetik</p>
                     <p> Paperbag</p>
                 </div>
             </div>
-            <div class="col-4 right-kraft" style="background-color: green; ">
-                sjhb
+            <div class="col-4 right-kraft">
+                <img src="./asset/img/kraft.png" alt="">
             </div>
         </div>
     </div>
@@ -78,24 +86,27 @@
     <!-- CONTENT 3 -->
     <div class="container" id="content-bahan">
         <div class="left">
+            <img src="./asset/img/ivory.jpg" alt="">
         </div>
         <div class="right ">
             <div class="deskripsi py-3">
-                <p><strong>Ketebalan (gramasi)</strong></p>
+                <div class="text-center pb-2 font-bold">
+                    <h5>BAHAN IVORY</h5>
+                </div>
+                <p class="sub-title"> Ketebalan (gramasi)</p>
                 <p>
-                    270gr 350gr
-                    300gr
+                    270gr 350gr 300gr
                 </p>
 
-                <p> <strong>Food grade</strong> </p>
+                <p class="sub-title"> Food grade</p>
                 <p>
                     aman untuk jenis makanan
                 </p>
-                <p><strong>Warna</strong> </p>
+                <p class="sub-title">Warna</p>
                 <p>
                     dapat cetak warna sisi luar dan dalam
                 </p>
-                <p><strong>Rekomendasi Penggunaan</strong> </p>
+                <p class="sub-title">Rekomendasi Penggunaan</p>
                 <p>
                     Kemasan Makanan berminyak
                 </p>
@@ -139,7 +150,7 @@
 
     <!-- CONTENT-MODEL -->
     <section>
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div id="carouselExampleControls" class="carousel slide pb-5" data-bs-ride="carousel">
             <div class="carousel-inner ">
                 <div class="carousel-item active">
                     <div class="container">
@@ -200,10 +211,10 @@
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                <img src="./asset/img/arrow-left.png " loading='lazy' alt="">
+                <i class="fa-solid fa-circle-chevron-left mx-auto w-fit text-4xl"></i>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                <img src="./asset/img/arrow-right.png " loading='lazy' alt="">
+                <i class="fa-solid fa-circle-chevron-right"></i>
             </button>
         </div>
     </section>

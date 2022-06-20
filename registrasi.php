@@ -1,3 +1,26 @@
+<?php
+$conn = mysqli_connect("localhost", "root", "", "db_company");
+if (isset($_POST["submit"])) {
+
+  // ngambil data dari tiap input dan masukin ke variabel
+  $nama = $_POST["Inputname"];
+  $username = $_POST["InputUsername"];
+  $password = $_POST["InputPassword"];
+  $alamat = $_POST["InputAlamat"];
+  $nohp = $_POST["InputTlp"];
+
+
+  //enkripsi password
+  $password = password_hash($password, PASSWORD_DEFAULT);
+  // query insert data
+  $query = ("INSERT INTO customers (nama,username,password,alamat,nohp) 
+  VALUES ('$nama','$username','$password','$alamat','$nohp')
+  ");
+
+  mysqli_query($conn, $query);
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,32 +55,32 @@
           </div>
 
           <!-- FORM INPUT -->
-          <form class="row g-3">
+          <form class="row g-3" method="POST" action="">
             <div class="col-md-6">
               <label for="Inputname" class="form-label">Nama</label>
-              <input type="text" class="form-control form-control-lg" id="inputEmail4">
+              <input type="text" class="form-control form-control-lg" name="Inputname" id="Inputname" required>
             </div>
             <div class="col-md-6">
               <label for="InputTlp" class="form-label">No Handphone</label>
-              <input type="text" class="form-control form-control-lg" id="inputEmail4">
+              <input type="text" class="form-control form-control-lg" name="InputTlp" id="InputTlp" required>
             </div>
             <div class="col-12">
               <label for="InputUsername" class="form-label">Username atau Email</label>
-              <input type="text" class="form-control form-control-lg" id="inputAddress">
+              <input type="text" class="form-control form-control-lg" name="InputUsername" id="InputUsername" required>
             </div>
             <div class="col-12">
               <label for="InputAlamat" class="form-label">Alamat</label>
-              <input type="text" class="form-control form-control-lg" id="inputAddress2">
+              <input type="text" class="form-control form-control-lg" name="InputAlamat" id="InputAlamat" required>
             </div>
             <div class="col-12">
               <label for="inputPassword" class="form-label">Password</label>
-              <input type="password" class="form-control form-control-lg" id="inputPassword4">
+              <input type="password" class="form-control form-control-lg" name="InputPassword" id="inputPassword" required>
             </div>
             <div class="mb-3">
               <span>Sudah punya akun?</span> <button class="p-0 border-0 bg-transparent primarycolor">Login</button>
             </div>
             <div class="d-grid gap-2">
-              <button class="btn btn-lg btn-custom text-white" style="background-color: #9D4689;" type="button">DAFTAR</button>
+              <button class="btn btn-lg btn-custom text-white" style="background-color: #9D4689;" type="submit" name="submit">DAFTAR</button>
             </div>
           </form>
           <!-- FORM END -->

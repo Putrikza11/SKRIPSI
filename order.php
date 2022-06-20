@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+
+if (isset($_POST["btn-pesan"])) {
+
+    if (!isset($_SESSION["login"])) {
+        header("Location: login.php");
+    }
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +36,7 @@
                         <P>Lihat detail Bahan dan produk <a href="material.php">Klik disini</a></P>
                     </div>
                     <div class="input-order">
-                        <form class=" g-3">
+                        <form class=" g-3" method="POST" action="">
                             <div class="row mb-3">
                                 <div class="col-md-12">
                                     <label for="inputBrand" class="form-label">Nama Brand</label>
@@ -99,7 +112,7 @@
                                 <button type="submit" class="btn btn-secondary bg-[#6c757d]  ">Cek Harga</button>
                             </div>
                             <div class="col-12">
-                                <button class="btn  bg-[#9D4689] hover:bg-[#9D4689] text-white block w-full" type="button">Pesan dan Konsultasi Desain</button>
+                                <button class="btn  bg-[#9D4689] hover:bg-[#9D4689] text-white block w-full" type="submit" name="btn-pesan">Pesan dan Konsultasi Desain</button>
                             </div>
                         </form>
                     </div>

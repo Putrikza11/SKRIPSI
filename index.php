@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 
@@ -35,7 +36,6 @@
                 </div>
             </div>
         </div>
-
         <!-- END JUMBOTRON -->
 
         <!-- ABOUT US -->
@@ -132,9 +132,11 @@
         <!-- END SERVICE -->
 
         <!-- ORDER -->
-
         <!-- component -->
         <div class="my-40 px-5">
+            <div class="title-order text-center">
+                <h4>PROSES PEMESANAN</h4>
+            </div>
             <div class="mx-4 p-4">
                 <div class="flex items-center">
                     <div class="flex items-center text-fuchsia-700 relative">
@@ -182,8 +184,8 @@
             </div>
 
         </div>
-
         <!-- END ORDER -->
+
         <!-- CTA -->
         <div class="container pb-5">
             <div class="row CTA mt-5 text-center">
@@ -191,7 +193,7 @@
                     dengan keinginan dan kebutuhan kamu? </h5>
 
                 <div class="col text-center">
-                    <a href="">
+                    <a href="order.php">
                         <button class="btn btn-CTA btn-light fs-4 border border-2 bg-white
                          border-secondary text-slate-800" style="border-radius: 20px; font-weight: bold;" type="submit">Cek Harga</button>
                     </a>
