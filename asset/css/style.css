@@ -306,10 +306,11 @@ background: linear-gradient(160deg, white ,#DEC6D8);
   background-color: #DEC6D8;
 }
 .image-model img{
-  width: 413px;
+  width: 100rem;
   height: 369px;
   padding: 20px 10px;
 }
 .content-model h6{
 text-align: center;
+padding-bottom: 40px;
 }

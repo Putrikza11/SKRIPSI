@@ -14,12 +14,14 @@
     <!-- CONTENT -->
     <div class="container-fluid" id="pesanan">
         <div class="row row-content ">
-            <h6>Hello! username </h6>
+            <h6>Hello! 
+                <?php echo $_SESSION['nama']; ?>
+            </h6>
             <!-- <div style="width: 90vh;">
                 <p>Lorem ipsum dolor sit amet.
                 </p>
             </div> -->
-            <h5 class="daftar-pesanan mt-3">DAFTAR PESANAN</h5>
+            <h5 class="daftar-pesanan mt-3 fw-semibold">DAFTAR PESANAN</h5>
             <!-- TABLE -->
             <div class="table-responsive">
                 <table class="table table-striped mt-3 ">

@@ -1,3 +1,6 @@
+<?php
+include("./conn/koneksi.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,51 +16,55 @@
 
     <!-- END NAVBAR -->
 
-    <div class="container-fluid" id="akun">
+    <div class="container-fluid pt-20" id="akun">
         <!-- FORM BOX-->
         <div class="row">
-            <div class="col p-5 ">
-                <div class="box p-5">
-                    <div class="form-title">
-                        <h2 class="title">DETAIL AKUN</h2>
-                        <p>Kamu dapat mengubah profile mu dengan data terbaru kamu.</p>
-                    </div>
-                    <!-- FORM INPUT -->
-                    <form class="row g-3 align-items-center">
-                        <div class="col-md-6">
-                            <label for="Inputname" class="form-label">Nama</label>
-                            <input type="text" class="form-control form-control-lg" id="inputEmail4">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="InputTlp" class="form-label">No Handphone</label>
-                            <input type="text" class="form-control form-control-lg" id="inputEmail4">
-                        </div>
-                        <div class="col-md-12">
-                            <label for="InputUsername" class="form-label">Username atau Email</label>
-                            <input type="text" class="form-control form-control-lg" id="inputAddress">
-                        </div>
-                        <div class="col-md-12">
-                            <label for="InputAlamat" class="form-label">Alamat</label>
-                            <input type="text" class="form-control form-control-lg" id="inputAddress2">
-                        </div>
-                        <div class="col-md-12">
-                            <label for="inputPassword" class="form-label">Password</label>
-                            <input type="password" class="form-control form-control-lg" id="inputPassword4">
-                        </div>
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-lg btn-custom text-white" style="background-color: #9D4689;" type="button">SIMPAN</button>
-                        </div>
-                    </form>
-                    <!-- FORM END -->
+            <div class="d-block mx-auto w-fit">
+                <div class="form-title mb-5">
+                    <h2 class="font-medium">DETAIL AKUN</h2>
+                    <p>Kamu dapat mengubah profile mu dengan data terbaru kamu.</p>
                 </div>
+                <?php
+                $sesi = $_SESSION['id_user'];
+                $sql = mysqli_query($conn, "SELECT * FROM customers WHERE id='$sesi' ");
+                $data = mysqli_fetch_array($sql);
+                ?>
+                <!-- FORM INPUT -->
+                <form class="row" method="" action="">
+                    <div class="col-md-6">
+                        <label for="Inputname" class="form-label">Nama</label>
+                        <input type="text" class="form-control form-control-lg" name="Inputname" id="Inputname" value="<?php echo $data['nama']; ?>">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="InputTlp" class="form-label">No Handphone</label>
+                        <input type="text" class="form-control form-control-lg" name="InputTlp" id="InputTlp" value="<?php echo $data['nohp']; ?>">
+                    </div>
+                    <div class="col-12 pt-4">
+                        <label for="InputUsername" class="form-label">Username atau Email</label>
+                        <input type="text" class="form-control form-control-lg" name="InputUsername" id="InputUsername" value="<?php echo $data['username']; ?>">
+                    </div>
+                    <div class="col-12 pt-4">
+                        <label for="InputAlamat" class="form-label">Alamat</label>
+                        <input type="text" class="form-control form-control-lg" name="InputAlamat" id="InputAlamat" value="<?php echo $data['alamat']; ?>">
+                    </div>
+                    <div class="col-12 pt-4">
+                        <label for="inputPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control form-control-lg" name="InputPassword" id="inputPassword" value="<?php echo $data['password']; ?>">
+                    </div>
+                    <div class="d-grid gap-2 py-10">
+                        <button class="btn btn-lg btn-custom text-white" style="background-color: #9D4689;" type="submit" name="submit">SIMPAN</button>
+                    </div>
+                </form>
+                <!-- FORM END -->
 
             </div>
         </div>
 
     </div>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- FOOTER -->
+    <?php require_once './component/footer.php'; ?>
+    <!-- END FOOTER -->
 </body>
 
 </html>

@@ -1,13 +1,22 @@
 <?php
 session_start();
+$conn = mysqli_connect("localhost", "root", "", "db_company");
 
+//mengecek apakah sudah login atau belum
+// if (isset($_POST["btn-pesan"])) {
 
-if (isset($_POST["btn-pesan"])) {
+//     if (!isset($_SESSION["login"])) {
+//         header("Location: login.php");
+//     }
+// }
 
-    if (!isset($_SESSION["login"])) {
-        header("Location: login.php");
-    }
-}
+//     //pilih db_potongan kertas
+//     $result = mysqli_query($conn, "SELECT * FROM potongan_kertas WHERE ");
+
+//   if ($rumus_panjang>=) {
+//     # code...
+//   }
+
 ?>
 
 <!DOCTYPE html>
@@ -75,13 +84,13 @@ if (isset($_POST["btn-pesan"])) {
                                     <label for="inputUkuran" class="form-label">Ukuran (cm)</label>
                                     <div class="input-wrapper w-full flex justify-between">
                                         <div class="col-md-4 pr-[10px]">
-                                            <input type="number" class="form-control" id="inputPanjang" placeholder="Panjang">
+                                            <input type="number" class="form-control" id="inputPanjang" name="inputPanjang" placeholder="Panjang">
                                         </div>
                                         <div class="col-md-4 px-[10px]">
-                                            <input type="number" class="form-control" id="inputLebar" placeholder="Lebar">
+                                            <input type="number" class="form-control" id="inputLebar" name="inputLebar" placeholder="Lebar">
                                         </div>
                                         <div class="col-md-4 pl-[10px]">
-                                            <input type="number" class="form-control" id="inputTinggi" placeholder="Tinggi">
+                                            <input type="number" class="form-control" id="inputTinggi" name="inputTinggi" placeholder="Tinggi">
                                         </div>
                                     </div>
                                     <span>Ukuran bahan : </span>

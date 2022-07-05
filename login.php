@@ -16,17 +16,26 @@ if (isset($_POST["login"])) {
 
     // cek password
     $row = mysqli_fetch_assoc($result);
-      if (password_verify($password, $row["password"])) {
+    if (password_verify($password, $row["password"])) {
 
-        //buat session untuk cek apakah sudah login atau belum dengan nama "login"
-        $_SESSION["login"] = true;
-      
+      //buat session untuk cek apakah sudah login atau belum dengan nama "login"
+      $_SESSION["login"] = true;
+      //buat query untuk ngambil data
+      if ($row > 0) {
+        //buat session untuk nyimpan data
+        $_SESSION['id_user'] = $row['id'];
+        $_SESSION['nama'] = $row['nama'];
+        $_SESSION['username'] = $row['username'];
+        $_SESSION['password'] = $row['password'];
+        $_SESSION['alamat'] = $row['alamat'];
+        $_SESSION['nohp'] = $row['nohp'];
 
-      header("location: pesanan.php");
-      exit;
+        header("location: pesanan.php");
+      } else {
+        echo "<script>alert('Gagal Login, coba kembali');document.location='login.php'</script>";
       }
+    }
   }
-  $error = true;
 }
 
 
@@ -46,10 +55,6 @@ if (isset($_POST["login"])) {
 
   <!-- NAVBAR -->
   <?php require_once './component/navbar.php';  ?>
-
-
-
-
   <!-- END NAVBAR -->
   <div class="container-fluid">
     <div class="row justify-content-center align-items-center inner-row">
@@ -71,7 +76,7 @@ if (isset($_POST["login"])) {
             </div>
 
             <div class="mb-3">
-              <span>Belum punya akun?</span> <a href="registrasi.php"><button class="p-0 border-0 bg-transparent primarycolor">Daftar di sini</button></a>
+              <span>Belum punya akun?</span> <button class="p-0 border-0 bg-transparent primarycolor"><a href="registrasi.php">Daftar disini</a></button>
             </div>
             <div class="d-grid gap-2">
               <button class="btn btn-lg btn-custom text-white" style="background-color: #9D4689;" type="submit" name="login">LOGIN</button>

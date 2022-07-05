@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 
@@ -17,25 +16,26 @@
     <!-- END NAVBAR -->
 
     <main class="mt-16">
-
         <!-- JUMBOTRON banner-->
-        <div class="image-wrapper relative banner overflow-hidden	">
-            <img src="./asset/img/alfabel.jpeg" alt="usni_image_hero" class="w-full  object-cover object-bottom h-100 " loading='lazy'>
+        <div class="container-fluid banner p-0">
+            <div class="image-wrapper relative banner overflow-hidden	">
+                <img src="./asset/img/alfabel.jpeg" alt="usni_image_hero" class="w-full  object-cover object-bottom h-100 " loading='lazy'>
+                <div class=" bg-gradient-custom bg-gradient-to-r from-white opacity-90"></div>
 
-            <div class=" bg-gradient-custom bg-gradient-to-r from-white opacity-90"></div>
-
-            <div class="bg-gradient-custom  search-bar-wrapper  h-full w-full flex flex-wrap flex-col justify-center p-0">
-                <div class="col-md-6 my-auto container tagline">
-                    <h1 class="fw-semibold !leading-normal !text-slate-800">BUAT PRODUKMU TERLIHAT EKSLUSIF</h1>
-                    <p class="fw-medium">
-                        Customize produkmu dengan Bahan, Ukuran, dan Desain yang
-                        kamu mau untuk meningkatkan citra produkmu dan menjadi jalan
-                        pintas untuk Branding.
-                    </p>
-                    <a href="registrasi.html" class="btn text-white bg-gradient-to-tr from-[#A25E91] to-[#D26ECF]" role="button" data-bs-toggle="button">DAFTAR SEKARANG</a>
+                <div class="bg-gradient-custom  search-bar-wrapper  h-full w-full flex flex-wrap flex-col justify-center p-0">
+                    <div class="col-md-6 my-auto container tagline">
+                        <h1 class="fw-semibold !leading-normal !text-slate-800">BUAT PRODUKMU TERLIHAT EKSLUSIF</h1>
+                        <p class="fw-medium">
+                            Customize produkmu dengan Bahan, Ukuran, dan Desain yang
+                            kamu mau untuk meningkatkan citra produkmu dan menjadi jalan
+                            pintas untuk Branding.
+                        </p>
+                        <a href="registrasi.html" class="btn text-white bg-gradient-to-tr from-[#A25E91] to-[#D26ECF]" role="button" data-bs-toggle="button">DAFTAR SEKARANG</a>
+                    </div>
                 </div>
             </div>
         </div>
+
         <!-- END JUMBOTRON -->
 
         <!-- ABOUT US -->
@@ -47,7 +47,7 @@
                 <div class="col-md-8">
                     <P>"<strong>Kahtapack</strong>
                         berdiri pada tahun 2017 dengan produk
-                        custom pertama yaitu blabla dan kemudian
+                        custom pertama yaitu undangan dan kemudian
                         berkembang memberikan layanan jasa cetak untuk
                         kemasan custom berbahan kertas. Produk dengan
                         berbahan kertas menjadi bahan utama kami."
@@ -123,7 +123,7 @@
                 </div>
             </div>
             <div class="row text-center link-service">
-                <a href="">
+                <a href="material.php">
                     <h5>View More <i class="bi bi-chevron-compact-right"></i></h5>
 
                 </a>
@@ -140,42 +140,42 @@
             <div class="mx-4 p-4">
                 <div class="flex items-center">
                     <div class="flex items-center text-fuchsia-700 relative">
-                        <div class="rounded-full transition duration-500 ease-in-out h-20 w-20 py-3 border-2 border-fuchsia-700">
+                        <div class="rounded-full transition duration-500 ease-in-out hover:border-fuchsia-500 h-20 w-20 py-3 border-2 border-fuchsia-700">
                             <i class="fa-solid fa-file-lines block mx-auto w-fit text-4xl"></i>
                         </div>
                         <div class="absolute top-0 -ml-6 text-center mt-[5.5rem] w-32 text-sm font-medium uppercase text-fuchsia-700">1. Mengisi form sesuai pesanan</div>
                     </div>
 
-                    <div class="flex-auto border-t-2 transition duration-500 ease-in-out border-fuchsia-700"></div>
+                    <div class="flex-auto border-t-2 transition duration-500 ease-in-out hover:border-fuchsia-500 border-fuchsia-700"></div>
 
                     <div class="flex items-center text-fuchsia-700 relative">
-                        <div class="rounded-full transition duration-500 ease-in-out h-20 w-20 py-3 border-2  border-fuchsia-700">
+                        <div class="rounded-full transition duration-500 ease-in-out hover:border-fuchsia-500 h-20 w-20 py-3 border-2  border-fuchsia-700">
                             <i class="fa-solid fa-headset block mx-auto w-fit text-4xl"></i>
                         </div>
                         <div class="absolute top-0 -ml-6 text-center mt-[5.5rem] w-32 text-sm font-medium uppercase text-fuchsia-700">2. Konsultasi Desain</div>
                     </div>
 
-                    <div class="flex-auto border-t-2 transition duration-500 ease-in-out border-fuchsia-700"></div>
+                    <div class="flex-auto border-t-2 transition duration-500 ease-in-out hover:border-fuchsia-500 border-fuchsia-700"></div>
 
                     <div class="flex items-center text-fuchsia-700 relative">
-                        <div class="rounded-full transition duration-500 ease-in-out h-20 w-20 py-3 border-2 border-fuchsia-700">
+                        <div class="rounded-full transition duration-500 ease-in-out hover:border-fuchsia-500 h-20 w-20 py-3 border-2 border-fuchsia-700">
                             <i class="fa-solid fa-money-bill-transfer  block mx-auto w-fit text-4xl"></i>
                         </div>
                         <div class="absolute top-0 -ml-6 text-center mt-[5.5rem] w-32 text-sm font-medium uppercase text-fuchsia-700">3. Pembayaran Uang Muka</div>
                     </div>
 
-                    <div class="flex-auto border-t-2 transition duration-500 ease-in-out border-fuchsia-700"></div>
+                    <div class="flex-auto border-t-2 transition duration-500 ease-in-out hover:border-fuchsia-500 border-fuchsia-700"></div>
 
                     <div class="flex items-center text-fuchsia-700 relative">
-                        <div class="rounded-full transition duration-500 ease-in-out h-20 w-20 py-3 border-2 border-fuchsia-700">
+                        <div class="rounded-full transition duration-500 ease-in-out hover:border-fuchsia-500 h-20 w-20 py-3 border-2 border-fuchsia-700">
                             <i class="fa-solid fa-pen-ruler block mx-auto w-fit text-4xl"></i>
                         </div>
                         <div class="absolute top-0 -ml-6 text-center mt-[5.5rem] w-32 text-sm font-medium uppercase text-fuchsia-700">4. Proses Produksi</div>
                     </div>
 
-                    <div class="flex-auto border-t-2 transition duration-500 ease-in-out border-fuchsia-700"></div>
+                    <div class="flex-auto border-t-2 transition duration-500 ease-in-out hover:border-fuchsia-500 border-fuchsia-700"></div>
                     <div class="flex items-center text-fuchsia-700 relative">
-                        <div class="rounded-full transition duration-500 ease-in-out h-20 w-20 py-3 border-2 border-fuchsia-700">
+                        <div class="rounded-full transition duration-500 ease-in-out hover:border-fuchsia-500 h-20 w-20 py-3 border-2 border-fuchsia-700">
                             <i class="fa-solid fa-truck-fast block mx-auto w-fit text-4xl"></i>
                         </div>
                         <div class="absolute top-0 -ml-6 text-center mt-[5.5rem] w-32 text-sm font-medium uppercase text-fuchsia-700">5.Produk siap dikirim</div>
