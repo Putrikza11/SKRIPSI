@@ -232,7 +232,7 @@ background: linear-gradient(160deg, white ,#DEC6D8);
   padding-left: 30px;
   font-weight: 300;
 }
-.right-kraft{
+.right-duplex{
   width: 500px;
   height: 500px;
   background-size: cover;
@@ -240,14 +240,17 @@ background: linear-gradient(160deg, white ,#DEC6D8);
 
 
 }
-.left-kraft{
-  
+.left-duplex{
+  width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+ color: white;
+ margin-left: -100px;
+  border-radius: 8px;
+  background-color: #A25E91;
 }
-.right-kraft{
-  width: 556px;
-  height: 556px;
-  background-size: cover;
-}
+
 
 /* LAMINASI */
 .container .box{

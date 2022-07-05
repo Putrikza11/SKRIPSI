@@ -18,7 +18,7 @@ session_start();
 
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 justify-content-center">
                 <li class="nav-item">
                     <a class="nav-link <?= $_SERVER['REQUEST_URI'] == '/' ? 'active' : '' ?> " aria-current="page" href="/">Home</a>
                 </li>

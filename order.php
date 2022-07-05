@@ -57,13 +57,8 @@ $conn = mysqli_connect("localhost", "root", "", "db_company");
                                     <label for="inputBahan" class="form-label">Bahan</label>
                                     <select id="inputBahan" class="form-select ">
                                         <option selected>Choose...</option>
-                                        <option>Bahan Ivory 270gr</option>
                                         <option>Bahan Ivory 300gr</option>
                                         <option>Bahan Ivory 350gr</option>
-                                        <option>Bahan Kraft 270gr</option>
-                                        <option>Bahan Kraft 310gr</option>
-                                        <option>Bahan Kraft 350gr</option>
-                                        <option>Bahan Duplex 275gr</option>
                                         <option>Bahan Duplex 310gr</option>
                                         <option>Bahan Duplex 350gr</option>
                                     </select>
@@ -93,7 +88,6 @@ $conn = mysqli_connect("localhost", "root", "", "db_company");
                                             <input type="number" class="form-control" id="inputTinggi" name="inputTinggi" placeholder="Tinggi">
                                         </div>
                                     </div>
-                                    <span>Ukuran bahan : </span>
 
                                 </div>
 

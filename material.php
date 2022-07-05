@@ -62,7 +62,7 @@
     <div class="container">
         <div class="row flex justify-end ">
             <div class="col-6 relative">
-                <div class="left-duplex absolute mt-20 -left-32">
+                <div class="left-duplex absolute mt-20 -left-15">
                     <div class="deskripsi py-3">
                         <div class="text-center pb-2 font-bold">
                             <h5>BAHAN DUPLEX</h5>
@@ -136,7 +136,7 @@
             <div class="carousel-inner ">
                 <div class="carousel-item active">
                     <div class="container">
-                        <div class="d-flex  align-items-center">
+                        <div class="d-flex align-items-center">
                             <div class="image-model ">
                                 <img src="./asset/img/bone.jpeg" loading='lazy' alt="">
                             </div>
