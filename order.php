@@ -33,7 +33,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
                         <P>Lihat detail Bahan dan produk <a href="material.php">Klik disini</a></P>
                     </div>
                     <div class="input-order">
-                        <form class=" g-3" method="POST" action="">
+                        <form class=" g-3" method="POST" action="./order/make_order.php">
                             <div class="row mb-3">
                                 <div class="col-md-8">
                                     <label for="inputBrand" class="form-label">Nama Brand</label>
@@ -42,7 +42,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
 
                                 <div class="col-md-4">
                                     <label for="inputTanggal" class="form-label">Tanggal</label>
-                                    <input type="date" required class="form-control" name="tanggal">
+                                    <input type="date" required class="form-control" name="tanggal" value="<?= date('Y-m-d') ?>">
                                 </div>
                             </div>
 
@@ -139,8 +139,10 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
                                 <?php
                                 if (isset($_SESSION["login"])) :
                                     if ($_SESSION["login"]) : ?>
-                                        <a class="btn  bg-[#9D4689] focus:bg-[#9D4689] hover:bg-[#c25caa] active:bg-[#d85ebc]  text-white block w-full" href='https://api.whatsapp.com/send?phone=6288210787770' name="btn-pesan" target="_blank">Pesan dan Konsultasi Desain
-                                        </a>
+                                        <!-- <a class="btn  bg-[#9D4689] focus:bg-[#9D4689] hover:bg-[#c25caa] active:bg-[#d85ebc]  text-white block w-full" href='https://api.whatsapp.com/send?phone=6288210787770' name="btn-pesan" target="_blank">Pesan dan Konsultasi Desain
+                                        </a> -->
+                                        <button class="btn  bg-[#9D4689] focus:bg-[#9D4689] hover:bg-[#c25caa] active:bg-[#d85ebc]  text-white block w-full" name="btn-pesan" type="submit">Pesan dan Konsultasi Desain
+                                        </button>
                                     <?php
                                     endif; ?>
 
@@ -149,26 +151,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
                                     </a>
                                 <?php endif;
 
-
-                                if (isset($_POST['btn-pesan'])) {
-
-                                    $id = $_SESSION['id_user'];
-                                    $namabrand = $_POST['namaBrand'];
-                                    $tanggal = $_POST['tanggal'];
-                                    $bahan = $_POST['bahan'];
-                                    $warna = $_POST['warna'];
-                                    $ukuran_panjang = $_POST['inputPanjang'];
-                                    $ukuran_lebar = $_POST['inputLebar'];
-                                    $ukuran_tinggi = $_POST['inputTinggi'];
-                                    $quantity = $_POST['quantity'];
-                                    $laminasi = $_POST['laminasi'];
-
-                                    // $query = ("INSERT INTO transaksi (id_user,nama_brand,tanggal,nama_bahan,ukuran_panjang,ukuran_lebar,ukuran_tinggi,warna_produk,laminasi_produk,quantity) 
-                                    //             VALUES ('$id','$namabrand','$tanggal','$bahan','$ukuran_panjang','$ukuran_lebar','$ukuran_tinggi','$quantity','$laminasi')
-                                    //         ");
-
-                                    // mysqli_query($conn, $query);
-                                }
                                 ?>
 
 
@@ -186,7 +168,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
     <script>
         // Script for quantity input
         let inputQuantityField = document.querySelector('#inputQty');
-        inputQuantityField.addEventListener('keyup', function(e) {
+        inputQuantityField.addEventListener('change', function(e) {
             setTimeout(() => {
                 if (inputQuantityField.value <= 500) {
                     inputQuantityField.value = 500;
@@ -194,10 +176,10 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
             }, 3000)
         })
 
+
+
         // Script for cek harga
         const buttonCek = document.querySelector('#btn_cek_harga')
-
-
         $('#btn_cek_harga').click(function() {
             const data = {
                 inputPanjang: $('[name=inputPanjang').val(),
@@ -221,7 +203,18 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
         })
     </script>
 
+    <!-- script for sweetalert -->
+    <script>
+        <?php
+        if (isset($_GET['action'])) :
+        ?>
 
+            Swal.fire({
+                icon: <?= $_GET['action'] ?>,
+                title: <?= $_GET['message'] ?>,
+            })
+        <?php endif ?>
+    </script>
 
 </body>
 
