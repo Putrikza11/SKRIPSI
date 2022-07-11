@@ -58,8 +58,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
                             <div class="row mb-3">
                                 <div class="col-md-8">
                                     <label for="inputBahan" class="form-label">Bahan</label>
-                                    <select id="inputBahan" class="form-select" name="bahan">
-                                        <option selected>Choose...</option>
+                                    <select id="inputBahan" class="form-select" name="bahan" required>
+                                        <!-- <option selected>Choose...</option> -->
 
                                         <?php
 
@@ -77,8 +77,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
 
                                 <div class="col-md-4">
                                     <label for="inputWarna" class="form-label">Warna</label>
-                                    <select id="inputWarna" class="form-select" name="warna">
-                                        <option selected>Choose...</option>
+                                    <select id="inputWarna" class="form-select" name="warna" required>
+                                        <!-- <option selected>Choose...</option> -->
                                         <?php
 
                                         $warnaOptions = $conn->query('SELECT * FROM warna');
@@ -97,13 +97,13 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
                                     <label for="inputUkuran" class="form-label">Ukuran (cm)</label>
                                     <div class="input-wrapper w-full flex justify-between">
                                         <div class="col-md-4 pr-[10px]">
-                                            <input type="number" class="form-control" id="inputPanjang" name="inputPanjang" placeholder="Panjang">
+                                            <input type="number" class="form-control" id="inputPanjang" name="inputPanjang" placeholder="Panjang" required>
                                         </div>
                                         <div class="col-md-4 px-[10px]">
-                                            <input type="number" class="form-control" id="inputLebar" name="inputLebar" placeholder="Lebar">
+                                            <input type="number" class="form-control" id="inputLebar" name="inputLebar" placeholder="Lebar" required>
                                         </div>
                                         <div class="col-md-4 pl-[10px]">
-                                            <input type="number" class="form-control" id="inputTinggi" name="inputTinggi" placeholder="Tinggi">
+                                            <input type="number" class="form-control" id="inputTinggi" name="inputTinggi" placeholder="Tinggi" required>
                                         </div>
                                     </div>
 
@@ -111,7 +111,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
 
                                 <div class="col-md-4">
                                     <label for="inputQty" class="form-label">Quantity</label>
-                                    <input type="number" min="500" class="form-control" id="inputQty" name="quantity" placeholder="500">
+                                    <input type="number" min="500" class="form-control" id="inputQty" name="quantity" placeholder="500" required>
                                 </div>
 
 
@@ -142,6 +142,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
 
                                     if (isset($_POST['inputPanjang'])) {
 
+
                                         // Ambil data dari post
                                         $panjang = $_POST['inputPanjang'];
                                         $lebar = $_POST['inputLebar'];
@@ -150,6 +151,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
                                         $id_bahan = $_POST['bahan'];
                                         $id_warna = $_POST['warna'];
                                         $id_laminasi = $_POST['laminasi'];
+
+
 
                                         //rumus mencari p x l potongan kertas
                                         $panjang_kertas = (2 * $tinggi) + $panjang;
@@ -171,10 +174,15 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
                                         $harga_bahan = $bahan['harga'];
 
                                         // Ambil data laminasi dari database
-                                        $resultLaminasi = $conn->query("SELECT * FROM laminasi WHERE id = $id_laminasi ");
-                                        $laminasi = mysqli_fetch_array($resultLaminasi);
-                                        // extrack data dari array database untuk laminasi
-                                        $harga_laminasi = $laminasi['harga'];
+                                        if ($_POST['laminasi'] && $_POST['laminasi'] !== 'Choose...') {
+
+                                            $resultLaminasi = $conn->query("SELECT * FROM laminasi WHERE id = $id_laminasi ");
+                                            $laminasi = mysqli_fetch_array($resultLaminasi);
+                                            // extrack data dari array database untuk laminasi
+                                            $harga_laminasi = $laminasi['harga'];
+                                        } else {
+                                            $harga_laminasi = 1;
+                                        }
 
                                         // Ambil data warna dari database
                                         $resultWarna = $conn->query("SELECT * FROM warna WHERE id = $id_warna ");
@@ -265,7 +273,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
                 if (inputQuantityField.value <= 500) {
                     inputQuantityField.value = 500;
                 }
-            }, 1000)
+            }, 3000)
         })
     </script>
 

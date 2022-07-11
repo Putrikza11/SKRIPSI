@@ -26,7 +26,7 @@ include("./conn/koneksi.php");
                 </div>
                 <?php
                 $sesi = $_SESSION['id_user'];
-                $sql = mysqli_query($conn, "SELECT * FROM customers WHERE id='$sesi' ");
+                $sql = mysqli_query($conn, "SELECT * FROM user WHERE id='$sesi' ");
                 $data = mysqli_fetch_array($sql);
                 ?>
                 <!-- FORM INPUT -->

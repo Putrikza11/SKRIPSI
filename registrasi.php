@@ -13,7 +13,7 @@ if (isset($_POST["submit"])) {
   //enkripsi password
   $password = password_hash($password, PASSWORD_DEFAULT);
   // query insert data
-  $query = ("INSERT INTO customers (nama,username,password,alamat,nohp) 
+  $query = ("INSERT INTO user (nama,username,password,alamat,nohp) 
   VALUES ('$nama','$username','$password','$alamat','$nohp')
   ");
 
