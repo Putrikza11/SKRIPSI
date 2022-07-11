@@ -1,7 +1,7 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
 
-if (isset($_POST)) {
+if (isset($_POST['inputPanjang'])) {
 
     // Ambil data dari post
     $panjang = $_POST['inputPanjang'];
@@ -32,15 +32,21 @@ if (isset($_POST)) {
     $harga_bahan = $bahan['harga'];
 
     // Ambil data laminasi dari database
-    $resultLaminasi = $conn->query("SELECT * FROM laminasi WHERE id = $id_laminasi ");
-    $laminasi = mysqli_fetch_array($resultLaminasi);
-    // extrack data dari array database untuk laminasi
-    $harga_laminasi = $laminasi['harga'];
+    if ($_POST['laminasi'] && $_POST['laminasi'] !== 'Choose...') {
+
+        $resultLaminasi = $conn->query("SELECT * FROM laminasi WHERE id = $id_laminasi ");
+        $laminasi = mysqli_fetch_array($resultLaminasi);
+        // extrack data dari array database untuk laminasi
+        $harga_laminasi = $laminasi['harga'];
+    } else {
+        $harga_laminasi = 1;
+    }
 
     // Ambil data warna dari database
     $resultWarna = $conn->query("SELECT * FROM warna WHERE id = $id_warna ");
     $warna = mysqli_fetch_array($resultWarna);
     // extrack data dari array database untuk warna
+
     $harga_warna = $warna['harga'];
 
     // Ambil data pond dari database
@@ -62,12 +68,17 @@ if (isset($_POST)) {
     // perhitungan rumus laminasi
     $laminasi = $panjangMaster * $lebarMaster * $harga_laminasi * ($quantity + 150);
 
+    //perhitungan rumus hpp
     $hpp = $totalHargaBahan + $totalHargaWarna + $laminasi + $pond;
 
-    $hargaSatuan = ($hpp * 110 / 100)  / $quantity;
-    print($hargaSatuan);
-    
+    //perhitungan total harga dan harga satuan
+    $totalHarga = $hpp * 110 / 100;
+    $hargaSatuan = $totalHarga  / $quantity;
 
-} else {
-    header("Location:../order.php");
+    echo "
+    <p>
+        Total Harga : Rp. " . number_format(ceil($totalHarga)) . "
+    </p>
+    <p> Rp." . number_format(ceil($hargaSatuan)) . "/pcs </p>
+    ";
 }
