@@ -8,13 +8,14 @@
 
 <body>
     <!-- NAVBAR -->
-    <?php require_once './component/navbar.php'; ?>
+    <?php require_once './component/navbar.php';
+    ?>
     <!-- END NAVBAR -->
 
     <!-- CONTENT -->
     <div class="container-fluid" id="pesanan">
         <div class="row row-content ">
-            <h6>Hello! 
+            <h6>Hello!
                 <?php echo $_SESSION['nama']; ?>
             </h6>
             <!-- <div style="width: 90vh;">
@@ -43,7 +44,8 @@
                             <td>@mdo</td>
                             <td>@mdo</td>
                             <td>
-                                <button type="button" class="btn btn-outline-primary" style="border-radius: 20px;">Upload Bukti Pembayaran</button>
+                                <button type="button" class="btn btn-outline-primary"
+                                    style="border-radius: 20px;">Upload Bukti Pembayaran</button>
                             </td>
                         </tr>
                         <tr>
