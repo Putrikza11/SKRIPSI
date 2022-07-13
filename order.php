@@ -1,6 +1,6 @@
 <?php
 
-$conn = mysqli_connect("localhost", "root", "", "db_company");
+// $conn = mysqli_connect("localhost", "root", "", "db_company");
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
 
@@ -37,12 +37,14 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
                             <div class="row mb-3">
                                 <div class="col-md-8">
                                     <label for="inputBrand" class="form-label">Nama Brand</label>
-                                    <input type="text" required class="form-control" name="namaBrand" id="inputNamaBrand" placeholder="Exp : BrownieCake">
+                                    <input type="text" required class="form-control" name="namaBrand"
+                                        id="inputNamaBrand" placeholder="Exp : BrownieCake">
                                 </div>
 
                                 <div class="col-md-4">
                                     <label for="inputTanggal" class="form-label">Tanggal</label>
-                                    <input type="date" required class="form-control" name="tanggal" value="<?= date('Y-m-d') ?>">
+                                    <input type="date" required class="form-control" name="tanggal"
+                                        value="<?= date('Y-m-d') ?>">
                                 </div>
                             </div>
 
@@ -59,7 +61,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
                                         while ($bahan = mysqli_fetch_array($bahanOptions)) :
 
                                         ?>
-                                            <option class="capitalize" value="<?= $bahan['id'] ?>"><?= $bahan['nama_bahan'] ?></option>
+                                        <option class="capitalize" value="<?= $bahan['id'] ?>">
+                                            <?= $bahan['nama_bahan'] ?></option>
                                         <?php endwhile; ?>
 
                                     </select>
@@ -77,7 +80,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
                                         while ($warna = mysqli_fetch_array($warnaOptions)) :
 
                                         ?>
-                                            <option class="capitalize" value="<?= $warna['id'] ?>"><?= $warna['jenis_warna'] ?></option>
+                                        <option class="capitalize" value="<?= $warna['id'] ?>">
+                                            <?= $warna['jenis_warna'] ?></option>
                                         <?php endwhile; ?>
                                     </select>
                                 </div>
@@ -87,14 +91,33 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
                                 <div class="col-md-8 ">
                                     <label for="inputUkuran" class="form-label">Ukuran (cm)</label>
                                     <div class="input-wrapper w-full flex justify-between">
-                                        <div class="col-md-4 pr-[10px]">
-                                            <input type="number" class="form-control" id="inputPanjang" name="inputPanjang" placeholder="Panjang" required>
+
+                                        <div class="col-md-4 pr-[5px]">
+                                            <!-- <input type="number" class="form-control" id="inputPanjang"
+                                                name="inputPanjang" placeholder="Panjang" required> -->
+
+                                            <div class="form-floating mb-3">
+                                                <input type="number" class="form-control" id="inputPanjang"
+                                                    name="inputPanjang" placeholder="Panjang" required>
+                                                <label for="inputPanjang">Panjang</label>
+                                            </div>
                                         </div>
-                                        <div class="col-md-4 px-[10px]">
-                                            <input type="number" class="form-control" id="inputLebar" name="inputLebar" placeholder="Lebar" required>
+
+
+                                        <div class="col-md-4 px-[5px]">
+                                            <div class="form-floating mb-3">
+                                                <input type="number" class="form-control" id="inputLebar"
+                                                    name="inputLebar" placeholder="Lebar" required>
+                                                <label for="inputLebar">Lebar</label>
+                                            </div>
                                         </div>
-                                        <div class="col-md-4 pl-[10px]">
-                                            <input type="number" class="form-control" id="inputTinggi" name="inputTinggi" placeholder="Tinggi" required>
+                                        <div class="col-md-4 pl-[5px]">
+
+                                            <div class="form-floating mb-3">
+                                                <input type="number" class="form-control" id="inputTinggi"
+                                                    name="inputTinggi" placeholder="Tinggi" required>
+                                                <label for="inputTinggi">Tinggi</label>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -102,14 +125,16 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
 
                                 <div class="col-md-4">
                                     <label for="inputQty" class="form-label">Quantity</label>
-                                    <input type="number" min="500" class="form-control" id="inputQty" name="quantity" placeholder="500" required>
+                                    <input type="number" min="500" class="form-control" id="inputQty" name="quantity"
+                                        placeholder="500" required>
                                 </div>
 
 
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <label for="inputLaminasi" class="form-label">Laminasi <span class='text-xs text-slate-500'>(opsional)</span></label>
+                                <label for="inputLaminasi" class="form-label">Laminasi <span
+                                        class='text-xs text-slate-500'>(opsional)</span></label>
                                 <select id="inputLaminasi" class="form-select" name='laminasi'>
                                     <option selected>Choose...</option>
                                     <?php
@@ -119,7 +144,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
                                     while ($laminasi = mysqli_fetch_array($laminasiOptions)) :
 
                                     ?>
-                                        <option class="capitalize" value="<?= $laminasi['id'] ?>"><?= $laminasi['jenis_laminasi'] ?></option>
+                                    <option class="capitalize" value="<?= $laminasi['id'] ?>">
+                                        <?= $laminasi['jenis_laminasi'] ?></option>
                                     <?php endwhile; ?>
 
                                 </select>
@@ -127,7 +153,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
 
 
                             <div class="col-12 mb-3  flex flex-row justify-between items-center">
-                                <button type="button" class="btn btn-secondary bg-[#6c757d] h-fit" id='btn_cek_harga'>Cek Harga</button>
+                                <button type="button" class="btn btn-secondary bg-[#6c757d] h-fit"
+                                    id='btn_cek_harga'>Cek Harga</button>
                                 <div class="price-info-wrapper my-3 text-right" id="price_placeholder">
 
 
@@ -139,21 +166,22 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
                                 <?php
                                 if (isset($_SESSION["login"])) :
                                     if ($_SESSION["login"]) : ?>
-                                        <!-- <a class="btn  bg-[#9D4689] focus:bg-[#9D4689] hover:bg-[#c25caa] active:bg-[#d85ebc]  text-white block w-full" href='https://api.whatsapp.com/send?phone=6288210787770' name="btn-pesan" target="_blank">Pesan dan Konsultasi Desain
+                                <!-- <a class="btn  bg-[#9D4689] focus:bg-[#9D4689] hover:bg-[#c25caa] active:bg-[#d85ebc]  text-white block w-full" href='https://api.whatsapp.com/send?phone=6288210787770' name="btn-pesan" target="_blank">Pesan dan Konsultasi Desain
                                         </a> -->
-                                        <button class="btn  bg-[#9D4689] focus:bg-[#9D4689] hover:bg-[#c25caa] active:bg-[#d85ebc]  text-white block w-full" name="btn-pesan" type="submit">Pesan dan Konsultasi Desain
-                                        </button>
-                                    <?php
+                                <button
+                                    class="btn  bg-[#9D4689] focus:bg-[#9D4689] hover:bg-[#c25caa] active:bg-[#d85ebc]  text-white block w-full"
+                                    name="btn-pesan" type="submit">Pesan dan Konsultasi Desain
+                                </button>
+                                <?php
                                     endif; ?>
 
                                 <?php else : ?>
-                                    <a class="btn  bg-[#9D4689] focus:bg-[#9D4689] hover:bg-[#c25caa] active:bg-[#d85ebc]  text-white block w-full" href='/login.php' name="btn-pesan">Pesan dan Konsultasi Desain
-                                    </a>
+                                <a class="btn  bg-[#9D4689] focus:bg-[#9D4689] hover:bg-[#c25caa] active:bg-[#d85ebc]  text-white block w-full"
+                                    href='/login.php' name="btn-pesan">Pesan dan Konsultasi Desain
+                                </a>
                                 <?php endif;
 
                                 ?>
-
-
 
                             </div>
                         </form>
@@ -166,31 +194,50 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
     <?php require_once './component/footer.php'; ?>
 
     <script>
-        // Script for quantity input
-        let inputQuantityField = document.querySelector('#inputQty');
-        inputQuantityField.addEventListener('change', function(e) {
-            setTimeout(() => {
-                if (inputQuantityField.value <= 500) {
-                    inputQuantityField.value = 500;
-                }
-            }, 3000)
-        })
-
-
-
-        // Script for cek harga
-        const buttonCek = document.querySelector('#btn_cek_harga')
-        $('#btn_cek_harga').click(function() {
-            const data = {
-                inputPanjang: $('[name=inputPanjang').val(),
-                inputLebar: $('[name=inputLebar').val(),
-                inputTinggi: $('[name=inputTinggi').val(),
-                quantity: $('[name=quantity').val(),
-                bahan: $('[name=bahan').val(),
-                warna: $('[name=warna').val(),
-                laminasi: $('[name=laminasi').val(),
+    // Script for quantity input
+    let inputQuantityField = document.querySelector('#inputQty');
+    inputQuantityField.addEventListener('change', function(e) {
+        setTimeout(() => {
+            if (inputQuantityField.value <= 500) {
+                inputQuantityField.value = 500;
             }
+        }, 3000)
+    })
 
+
+
+    // Script for cek harga
+    const buttonCek = document.querySelector('#btn_cek_harga')
+    const formValidation = (name) => {
+        const inputForm = $(`[name=${name}`)
+        const inputValue = inputForm.val()
+        if (inputValue.length == 0) {
+            usernameError = false;
+            inputForm.focus();
+            return false
+        } else {
+
+            return true
+        }
+
+    }
+    $('#btn_cek_harga').click(function() {
+        // const quantity = $('[name=quantity').val() ? $('[name=quantity').val() : 500;
+        const quantity = formValidation('quantity');
+        const panjang = formValidation('inputPanjang');
+        const lebar = formValidation('inputLebar');
+        const tinggi = formValidation('inputTinggi');
+
+        const data = {
+            inputPanjang: $('[name=inputPanjang').val(),
+            inputLebar: $('[name=inputLebar').val(),
+            inputTinggi: $('[name=inputTinggi').val(),
+            quantity: $('[name=quantity').val(),
+            bahan: $('[name=bahan').val(),
+            warna: $('[name=warna').val(),
+            laminasi: $('[name=laminasi').val(),
+        }
+        if (panjang && lebar && tinggi && quantity) {
             $.ajax({
                 url: './order/cek_harga.php',
                 method: 'POST',
@@ -200,20 +247,23 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
                     $('#price_placeholder').html(data);
                 }
             })
-        })
+        }
+
+
+    })
     </script>
 
     <!-- script for sweetalert -->
     <script>
-        <?php
+    <?php
         if (isset($_GET['action'])) :
         ?>
 
-            Swal.fire({
-                icon: <?= $_GET['action'] ?>,
-                title: <?= $_GET['message'] ?>,
-            })
-        <?php endif ?>
+    Swal.fire({
+        icon: <?= $_GET['action'] ?>,
+        title: <?= $_GET['message'] ?>,
+    })
+    <?php endif ?>
     </script>
 
 </body>

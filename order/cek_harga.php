@@ -21,22 +21,33 @@ if (isset($_POST['inputPanjang'])) {
     $result = $conn->query("SELECT * FROM potongan_kertas WHERE panjang >= $panjang_kertas and lebar >=$lebar_kertas ORDER BY id DESC LIMIT 1");
 
     $potongan_kertas = mysqli_fetch_array($result);
-    if (count($potongan_kertas) == 0) {
-        echo "error";
+    
+  
+    if (!$potongan_kertas) {
         $resultError = $conn->query("SELECT * FROM `potongan_kertas` WHERE panjang >=$panjang_kertas or lebar >=$lebar_kertas ORDER BY id ASC LIMIT 1");
         $potongan_kertas_error = mysqli_fetch_array($resultError);
 
-        if (count($potongan_kertas_error) >= 1) {
+        if ($potongan_kertas_error) {
+            
             $resultPanjang = $conn->query("SELECT * FROM `potongan_kertas` WHERE panjang >=$panjang_kertas ORDER BY id ASC LIMIT 1");
             $potongan_kertas_panjang = mysqli_fetch_array($resultPanjang);
+              
 
-            if (count($potongan_kertas_panjang) >= 1) {
-                header("Location:../order.php?message='Ukuran tinggi dan panjang terlalu besar'&action='error'");
+            if ($potongan_kertas_panjang) {
+                // header("Location:../order.php?message='Ukuran tinggi dan panjang terlalu besar'&action='error'");
+                echo "
+                    Ukuran tinggi dan panjang terlalu besar
+                    ";
             } else {
-                header("Location:../order.php?message='Ukuran tinggi dan lebar terlalu besar'&action='error'");
+                // header("Location:../order.php?message='Ukuran tinggi dan lebar terlalu besar'&action='error'");
+                  echo "
+                   Ukuran tinggi dan lebar terlalu besar
+                    ";
             }
         } else {
-            header("Location:../order.php?message='Ukuran terlalu besar'&action='error'");
+            // header("Location:../order.php?message='Ukuran terlalu besar'&action='error'");
+        echo "<script>alert('Potongan kertas tidak ditemukan');";
+
         }
     } else {
         // extrack data dari array database untuk potongan kertas

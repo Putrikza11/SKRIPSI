@@ -8,7 +8,8 @@
 
 <body>
     <!-- NAVBAR -->
-    <?php require_once './component/navbar.php'; ?>
+    <?php require_once './component/navbar.php';
+    ?>
     <!-- END NAVBAR -->
 
     <!-- CONTENT -->
