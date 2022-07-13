@@ -1,3 +1,6 @@
+<?php
+require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,9 +18,10 @@
     <!-- CONTENT -->
     <div class="container-fluid" id="pesanan">
         <div class="row row-content ">
-            <h6>Hello!
-                <?php echo $_SESSION['nama']; ?>
-            </h6>
+            <span class="text-7xl font-thin mb-5"> Hello,
+                <h6 class="inline font-normal"> <?php echo $_SESSION['nama']; ?> </h6>
+            </span>
+
             <!-- <div style="width: 90vh;">
                 <p>Lorem ipsum dolor sit amet.
                 </p>
@@ -37,7 +41,7 @@
                                         <th>No</th>
                                         <th>Tanggal</th>
                                         <th>Pesanan</th>
-                                        <th>Quantity</th>
+                                        <!-- <th>Quantity</th> -->
                                         <th>Total Harga</th>
                                         <th>Uang muka</th>
                                         <th>Lunas</th>
@@ -46,49 +50,109 @@
                                 </thead>
                                 <tbody style="font-size: 15px;">
 
-                                    <tr>
-                                        <td>1</td>
-                                        <td>12-07-2022</td>
-                                        <td>
-                                            18x11x5 <br>
-                                            Bahan ivory 300gr
+                                    <?php
+                                    $no = 1;
+                                    $id_user = $_SESSION['id_user'];
 
-                                        </td>
-                                        <td>2000</td>
-                                        <td>4,200,000</td>
-                                        <td> <i class="fa-solid fa-check"></i> </td>
-                                        <td> </td>
-                                        <td>
-                                            <button class="btn btn-outline-secondary btn-sm">
-                                                Upload Pembayaran
-                                            </button>
 
-                                            <!-- Button trigger modal -->
-                                            <button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                Detail Transaksi
-                                            </button>
+                                    $query = mysqli_query($conn, "SELECT * FROM transaksi INNER JOIN bahan ON transaksi.id_bahan = bahan.id WHERE id_user='$id_user' ");
 
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            ...
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    while ($data = mysqli_fetch_array($query)) {
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $no++; ?></td>
+                                            <td><?php echo $data['tanggal']; ?></td>
+                                            <td>
+                                                18x11x5
+                                                <br>
+                                                <?php echo $data['nama_bahan']; ?>
+                                            </td>
+                                            <!-- <td>
+                                                <?php echo $data['quantity']; ?>
+                                            </td> -->
+                                            <td><?php echo "Rp. " . number_format($data['total_harga']); ?>
+                                            </td>
+                                            <td>
+                                                <i class="fa-solid fa-check"></i>
+                                            </td>
+                                            <td> </td>
+                                            <td>
+                                                <button class="btn btn-outline-secondary btn-sm">
+                                                    Upload Pembayaran
+                                                </button>
+
+                                                <!-- Button trigger modal -->
+                                                <button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    Detail Transaksi
+                                                </button>
+
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="card-body">
+                                                                    <div class="table-responsive">
+                                                                        <table class="table table-bordered align-middle" id="dataTable" width="100%" cellspacing="0">
+                                                                            <thead>
+                                                                                Tanggal : <?php echo $data['tanggal']; ?>
+                                                                                <tr>
+                                                                                    <th>No</th>
+                                                                                    <th>Ukuran</th>
+                                                                                    <th>Bahan</th>
+                                                                                    <th>Quantity</th>
+                                                                                    <th>Harga satuan</th>
+                                                                                    <th>Uang muka</th>
+                                                                                    <th>Total Harga</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody style="font-size: 15px;">
+                                                                                <?php 
+                                                                                $nomor=1;
+                                                                                ?>
+                                                                                <tr>
+                                                                                    <td><?php echo $nomor++; ?></td>
+                                                                                    <td>
+                                                                                        18x11x5
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <?php echo $data['nama_bahan']; ?>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <?php echo $data['quantity']; ?>
+                                                                                    </td>
+                                                                                    <td><?php echo "Rp. " . number_format($data['harga_satuan']); ?>
+                                                                                    </td>
+                                                                                    <td><?php echo "Rp. " . number_format($data['total_harga']); ?>
+                                                                                    </td>
+                                                                                    <td><?php echo "Rp. " . number_format($data['total_harga']); ?>
+
+                                                                                </tr>
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <!-- <button class="btn btn-secondary btn-sm">Detail transaksi</button> -->
-                                        </td>
+                                                <!-- <button class="btn btn-secondary btn-sm">Detail transaksi</button> -->
+                                            </td>
 
-                                    </tr>
+                                        </tr>
+                                    <?php } ?>
+
+
+
+
 
                                 </tbody>
                             </table>

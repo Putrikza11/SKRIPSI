@@ -29,7 +29,7 @@ if (count($potongan_kertas) == 0) {
     $resultPanjang = $conn->query("SELECT * FROM `potongan_kertas` WHERE panjang >=$panjang_kertas ORDER BY id ASC LIMIT 1");
     $potongan_kertas_panjang = mysqli_fetch_array($resultPanjang);
 
-    $panjangMaster = $potongan_kertas_panjang['panjang'];
+    $panjangMaster = $potongan_kertas_panjang['(panjang'];
 
     
     $lebarMaster = $potongan_kertas_error['lebar'];

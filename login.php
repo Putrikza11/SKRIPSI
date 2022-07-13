@@ -10,12 +10,7 @@ if (isset($_POST["login"]) || isset($_POST["Username"])) {
   // ngambil data dari form input trs dimasukin ke variabel
   $username = $_POST["Username"];
   $password = $_POST["password"];
-
-  
-
   $result = mysqli_query($conn, "SELECT * FROM user WHERE username='$username' ");
-
-
  
   // cek username
   if (mysqli_num_rows($result) >= 1) {

@@ -27,9 +27,9 @@
     $panjang = 18;
     $lebar = 11;
     $tinggi = 5;
-    $full_color = 400000;
-    $laminasi = 0.18;
-    $qty = 2000;
+    $full_color = 150000 ;
+    $laminasi = 0;
+    $qty = 1000;
     $panjang_ukuran_kertas = 36;
     $lebar_ukuran_kertas = 39.5;
     $satuan_warna = 60;
@@ -75,16 +75,23 @@
     echo "<br />";
 
     //hitung HPP
-    $hpp = $total_bahan + $total_harga_warna +
+    $hpp = $total_bahan + $full_color +
         $total_harga_laminasi + $total_harga_pond;
-    echo "HPP: $hpp";
+    echo
+    "<p> HPP : Rp." . number_format(ceil($hpp)) . "</p>";
     echo "<br />";
 
     //hitung satuan harga
     $harga = ($hpp * 110 / 100)  / $qty;
     // echo $laba;
     echo "<br />";
-    echo "harga satuan: $harga";
+    echo "<p> harga satuan Rp." . number_format(ceil($harga)) . "/pcs </p>";
+
+    //hitung total pembelian
+    $total_pembelian = $harga * $qty;
+    echo "<br />";
+    echo
+    "<p> total pembelian Rp." . number_format(ceil($total_pembelian))."</p>";
 
 
 

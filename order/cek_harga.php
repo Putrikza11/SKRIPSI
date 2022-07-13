@@ -22,18 +22,20 @@ if (isset($_POST['inputPanjang'])) {
 
     $potongan_kertas = mysqli_fetch_array($result);
     
-  
+    //jika tidak ada potongan kertas yang sesuai dengan database buat variabel potongan_kertas_error yang berisi hasil kalau potongan kertas tidak ditemukan yg cocok antara panjang atau lebar maka dicek satu-satu.
     if (!$potongan_kertas) {
         $resultError = $conn->query("SELECT * FROM `potongan_kertas` WHERE panjang >=$panjang_kertas or lebar >=$lebar_kertas ORDER BY id ASC LIMIT 1");
         $potongan_kertas_error = mysqli_fetch_array($resultError);
 
+        //jika potongan kertas tidak ditemukan maka di cek ukuran panjang potongan kertas
         if ($potongan_kertas_error) {
-            
+            //buat variabel yang menampung nilai dimana ukuran panjang potongan kertas yang ada didatabase lebih panjang dari hasil perhitungan rumus panjang
             $resultPanjang = $conn->query("SELECT * FROM `potongan_kertas` WHERE panjang >=$panjang_kertas ORDER BY id ASC LIMIT 1");
             $potongan_kertas_panjang = mysqli_fetch_array($resultPanjang);
               
-
+            //jika ukuran panjang yang dihasilkan rumus terlalu besar maka akan muncul notif 
             if ($potongan_kertas_panjang) {
+                
                 // header("Location:../order.php?message='Ukuran tinggi dan panjang terlalu besar'&action='error'");
                 echo "
                     Ukuran tinggi dan panjang terlalu besar
@@ -69,7 +71,7 @@ if (isset($_POST['inputPanjang'])) {
             // extrack data dari array database untuk laminasi
             $harga_laminasi = $laminasi['harga'];
         } else {
-            $harga_laminasi = 1;
+            $harga_laminasi = 0;
         }
 
         // Ambil data warna dari database
@@ -102,14 +104,27 @@ if (isset($_POST['inputPanjang'])) {
         $hpp = $totalHargaBahan + $totalHargaWarna + $laminasi + $pond;
 
         //perhitungan total harga dan harga satuan
-        $totalHarga = $hpp * 110 / 100;
+        $totalHarga = $hpp * 125 / 100;
         $hargaSatuan = $totalHarga  / $quantity;
 
         echo "
+         <p>
+            Total Harga bahan : Rp. " . number_format(ceil($totalHargaBahan)) . "
+        </p>
+         <p>
+            Total Harga warna : Rp. " . number_format(ceil($totalHargaWarna)) . "
+        </p>
+         <p>
+            Total Harga laminasi : Rp. " . number_format(ceil($laminasi)) . "
+        </p>
+         <p>
+            Total HPP : Rp. " . number_format(ceil($hpp)) . "
+        </p>
         <p>
             Total Harga : Rp. " . number_format(ceil($totalHarga)) . "
         </p>
-        <p> Rp." . number_format(ceil($hargaSatuan)) . "/pcs </p>
+        <p>  Rp." . number_format(ceil($hargaSatuan)) . "/pcs
+         </p>
         ";
     }
 }

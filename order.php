@@ -44,7 +44,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
                                 <div class="col-md-4">
                                     <label for="inputTanggal" class="form-label">Tanggal</label>
                                     <input type="date" required class="form-control" name="tanggal"
-                                        value="<?= date('Y-m-d') ?>">
+                                        value="<?= date('d-m-Y') ?>">
                                 </div>
                             </div>
 
@@ -201,7 +201,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
             if (inputQuantityField.value <= 500) {
                 inputQuantityField.value = 500;
             }
-        }, 3000)
+        }, 1000)
     })
 
 
