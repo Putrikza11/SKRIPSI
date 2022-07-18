@@ -20,8 +20,14 @@ if (isset($_POST['inputPanjang'])) {
     // Ambil data potongan kertas dari database
     $result = $conn->query("SELECT * FROM potongan_kertas WHERE panjang >= $panjang_kertas and lebar >=$lebar_kertas ORDER BY id DESC LIMIT 1");
 
+    $result2 = $conn->query("SELECT * FROM potongan_kertas WHERE panjang <= $panjang_kertas or lebar <=$lebar_kertas ORDER BY lebar DESC LIMIT 1");
+    $result2 = mysqli_fetch_assoc($result2);
+
+    $p = $result2['panjang'];
+    $l = $result2['lebar'];
+
     $potongan_kertas = mysqli_fetch_array($result);
-    
+
     //jika tidak ada potongan kertas yang sesuai dengan database buat variabel potongan_kertas_error yang berisi hasil kalau potongan kertas tidak ditemukan yg cocok antara panjang atau lebar maka dicek satu-satu.
     if (!$potongan_kertas) {
         $resultError = $conn->query("SELECT * FROM `potongan_kertas` WHERE panjang >=$panjang_kertas or lebar >=$lebar_kertas ORDER BY id ASC LIMIT 1");
@@ -32,23 +38,32 @@ if (isset($_POST['inputPanjang'])) {
             //buat variabel yang menampung nilai dimana ukuran panjang potongan kertas yang ada didatabase lebih panjang dari hasil perhitungan rumus panjang
             $resultPanjang = $conn->query("SELECT * FROM `potongan_kertas` WHERE panjang >=$panjang_kertas ORDER BY id ASC LIMIT 1");
             $potongan_kertas_panjang = mysqli_fetch_array($resultPanjang);
-              
+
             //jika ukuran panjang yang dihasilkan rumus terlalu besar maka akan muncul notif 
             if ($potongan_kertas_panjang) {
-                
+
                 // header("Location:../order.php?message='Ukuran tinggi dan panjang terlalu besar'&action='error'");
                 echo "
                     Ukuran tinggi dan panjang terlalu besar
                     ";
             } else {
                 // header("Location:../order.php?message='Ukuran tinggi dan lebar terlalu besar'&action='error'");
-                  echo "
+                echo "
                    Ukuran tinggi dan lebar terlalu besar
                     ";
             }
         } else {
             // header("Location:../order.php?message='Ukuran terlalu besar'&action='error'");
-        echo "<script>alert('Potongan kertas tidak ditemukan');";
+            
+            echo '<div class=" alert alert-warning alert-dismissible fade show" role="alert">
+                  <i class="fa-solid fa-triangle-exclamation"></i> <br>
+                  <b>MAXIMAL PANJANG : '.$p.'</b> <br>
+                  <b>MAXIMAL LEBAR : '.$l.'</b> <br>
+                  <br>
+                  PANJANG KERTAS ANDA : <b>'.$panjang_kertas.'</b> <br>
+                  LEBAR KERTAS ANDA : <b>'.$lebar_kertas.'</b> <br>
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>';
 
         }
     } else {
@@ -108,23 +123,23 @@ if (isset($_POST['inputPanjang'])) {
         $hargaSatuan = $totalHarga  / $quantity;
 
         echo "
-         <p>
-            Total Harga bahan : Rp. " . number_format(ceil($totalHargaBahan)) . "
-        </p>
-         <p>
-            Total Harga warna : Rp. " . number_format(ceil($totalHargaWarna)) . "
-        </p>
-         <p>
-            Total Harga laminasi : Rp. " . number_format(ceil($laminasi)) . "
-        </p>
-         <p>
+        <span>
+            Total Bahan : Rp. " . number_format(ceil($totalHargaBahan)) . "
+        </span> <br>
+        <span>
+            Total Warna : Rp. " . number_format(ceil($totalHargaWarna)) . "
+        </span> <br>
+        <span>
+            Total laminasi  : Rp. " . number_format(ceil($laminasi)) . "
+        </span> <br>
+        <span>
             Total HPP : Rp. " . number_format(ceil($hpp)) . "
-        </p>
-        <p>
+        </span> <br>
+        <span>
             Total Harga : Rp. " . number_format(ceil($totalHarga)) . "
-        </p>
-        <p>  Rp." . number_format(ceil($hargaSatuan)) . "/pcs
-         </p>
+        </span> <br>
+        <span>  Rp." . number_format(ceil($hargaSatuan)) . "/pcs
+         </span>
         ";
     }
 }
