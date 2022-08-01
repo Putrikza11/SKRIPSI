@@ -60,8 +60,11 @@ if (isset($_POST['uploadFoto'])) {
                   $id_user = $_SESSION['id_user'];
 
 
-                  $query = mysqli_query($conn, "SELECT * FROM transaksi INNER JOIN bahan ON transaksi.id_bahan = bahan.id WHERE id_user='$id_user' ");
-
+                  $query = mysqli_query($conn, "SELECT * FROM transaksi INNER JOIN
+                                                warna ON transaksi.id_warna = warna.id INNER JOIN
+                                                laminasi ON transaksi.id_laminasi = laminasi.id INNER JOIN 
+                                                bahan ON transaksi.id_bahan=bahan.id
+                                                WHERE id_user='$id_user' ");
                   while ($data = mysqli_fetch_array($query)) {
                   ?>
                   <tr>
@@ -156,8 +159,17 @@ if (isset($_POST['uploadFoto'])) {
                                       </tr>
 
                                     </tbody>
+
                                   </table>
+
+                                  <p class="mt-10 !text-sm"><strong>Note:</strong> Pembayaran ke BCA 6030742166 A/N
+                                    Aldy
+                                    Akbar
+                                  </p>
+
+
                                 </div>
+
                               </div>
                             </div>
                             <div class="modal-footer">
@@ -184,19 +196,14 @@ if (isset($_POST['uploadFoto'])) {
                             </div>
                             <div class="modal-body">
                               <div class="card-body">
-                                <div class="row">
-                                  <div class="col-4 align-self-start ">
-                                    <div class="w-48">
-                                      <img src="./asset/img/logo-ungu.png" alt="">
-                                      <p>Jl.Raya Kebayoran Lama No.17</p>
-                                    </div>
-                                  </div>
+                                <div class="w-36 h-32">
+                                  <img src="./asset/img/logo-ungu.png" alt="">
+                                  <p class="w-48">Jl.Raya Kebayoran Lama No.17</p>
+                                </div>
 
-
-                                  <div class="col-4 justify-self-end">
-                                    <p class="ms-100%">Tanggal : <?php echo $data['tanggal']; ?></p>
-                                  </div>
-
+                                <div>
+                                  <strong class="ms-100%"> <?php echo $data['tanggal']; ?></strong> <br>
+                                  <span class="badge bg-success mb-3">Lunas</span>
                                 </div>
 
 
@@ -207,11 +214,9 @@ if (isset($_POST['uploadFoto'])) {
 
                                       <tr>
                                         <th>No</th>
-                                        <th>Ukuran</th>
-                                        <th>Bahan</th>
+                                        <th>Produk</th>
                                         <th>Quantity</th>
                                         <th>Harga satuan</th>
-                                        <th>Uang muka</th>
                                         <th>Total Harga</th>
                                       </tr>
                                     </thead>
@@ -221,18 +226,18 @@ if (isset($_POST['uploadFoto'])) {
                                         ?>
                                       <tr>
                                         <td><?php echo $nomor++; ?></td>
-                                        <td>
+                                        <td>Box
                                           <?= $data['ukuran_panjang'] . " x " . $data['ukuran_lebar'] . " x " . $data['ukuran_tinggi'] ?>
-                                        </td>
-                                        <td>
-                                          <?= $data['nama_bahan']; ?>
+                                          <br> <?= $data['nama_bahan']; ?>
+                                          <br>
+                                          <?= $data['jenis_warna']; ?>
+                                          <br>
+                                          <?= $data['jenis_laminasi']; ?>
                                         </td>
                                         <td>
                                           <?php echo $data['quantity']; ?>
                                         </td>
                                         <td><?php echo "Rp. " . number_format($data['harga_satuan']); ?>
-                                        </td>
-                                        <td><?php echo "Rp. " . number_format($data['total_harga']); ?>
                                         </td>
                                         <td><?php echo "Rp. " . number_format($data['total_harga']); ?>
 
