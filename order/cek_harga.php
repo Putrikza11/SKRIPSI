@@ -20,11 +20,11 @@ if (isset($_POST['inputPanjang'])) {
     // Ambil data potongan kertas dari database
     $result = $conn->query("SELECT * FROM potongan_kertas WHERE panjang >= $panjang_kertas and lebar >=$lebar_kertas ORDER BY id DESC LIMIT 1");
 
-    $result2 = $conn->query("SELECT * FROM potongan_kertas WHERE panjang <= $panjang_kertas or lebar <=$lebar_kertas ORDER BY lebar DESC LIMIT 1");
-    $result2 = mysqli_fetch_assoc($result2);
+    // $result2 = $conn->query("SELECT * FROM potongan_kertas WHERE panjang <= $panjang_kertas or lebar <=$lebar_kertas ORDER BY lebar DESC LIMIT 1");
+    // $result2 = mysqli_fetch_assoc($result2);
 
-    $p = $result2['panjang'];
-    $l = $result2['lebar'];
+    // $p = $result2["panjang"];
+    // $l = $result2["lebar"];
 
     $potongan_kertas = mysqli_fetch_array($result);
 
@@ -54,14 +54,16 @@ if (isset($_POST['inputPanjang'])) {
             }
         } else {
             // header("Location:../order.php?message='Ukuran terlalu besar'&action='error'");
+            //   <b>MAXIMAL PANJANG : '.$p.'</b> <br>
+                //   <b>MAXIMAL LEBAR : '.$l.'</b> <br>
+                //   <br>
+                //   PANJANG KERTAS ANDA : <b>'.$panjang_kertas.'</b> <br>
+                //   LEBAR KERTAS ANDA : <b>'.$lebar_kertas.'</b> <br>
+
             
             echo '<div class=" alert alert-warning alert-dismissible fade show" role="alert">
                   <i class="fa-solid fa-triangle-exclamation"></i> <br>
-                  <b>MAXIMAL PANJANG : '.$p.'</b> <br>
-                  <b>MAXIMAL LEBAR : '.$l.'</b> <br>
-                  <br>
-                  PANJANG KERTAS ANDA : <b>'.$panjang_kertas.'</b> <br>
-                  LEBAR KERTAS ANDA : <b>'.$lebar_kertas.'</b> <br>
+                  <p>Ukuran terlalu besar</p>
                   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>';
 
@@ -121,8 +123,14 @@ if (isset($_POST['inputPanjang'])) {
         //perhitungan total harga dan harga satuan
         $totalHarga = $hpp * 125 / 100;
         $hargaSatuan = $totalHarga  / $quantity;
-
+        
         echo "
+         <span>
+            Total Bahan : Rp. " . $panjangMaster . "
+        </span> <br>
+         <span>
+            Total Bahan : Rp. " . $lebarMaster. "
+        </span> <br>
         <span>
             Total Bahan : Rp. " . number_format(ceil($totalHargaBahan)) . "
         </span> <br>

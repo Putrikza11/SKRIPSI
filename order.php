@@ -150,8 +150,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
                 </select>
               </div>
 
-              <div class="col-12 mb-3 flex flex-row items-center" id="pesan">
-              </div>
+              <!-- <div class="col-12 mb-3 flex flex-row items-center" id="pesan">
+              </div> -->
               <div class="col-12 mb-3  flex flex-row justify-between items-center">
                 <button type="button" class="btn btn-secondary bg-[#6c757d] h-fit" id='btn_cek_harga'>Cek Harga
                 </button>
@@ -241,10 +241,10 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
         url: './order/cek_harga.php',
         method: 'POST',
         data: data,
-        success: function(daa) {
+        success: function(data) {
 
           $('#price_placeholder').html(data);
-          $("#pesan").html(daa)
+          // $("#pesan").html(daa)
         }
       })
     }

@@ -167,6 +167,89 @@ if (isset($_POST['uploadFoto'])) {
                         </div>
                       </div>
                     </td>
+                    <td>
+                      <button class="btn btn-outline-secondary btn-sm h-12" data-bs-toggle="modal"
+                        data-bs-target="#nota-<?= $data['id_transaksi'] ?>">
+                        Nota
+                      </button>
+                      <!-- Modal -->
+                      <div class="modal fade" id="nota-<?= $data['id_transaksi'] ?>" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Nota</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="card-body">
+                                <div class="row">
+                                  <div class="col-4 align-self-start ">
+                                    <div class="w-48">
+                                      <img src="./asset/img/logo-ungu.png" alt="">
+                                      <p>Jl.Raya Kebayoran Lama No.17</p>
+                                    </div>
+                                  </div>
+
+
+                                  <div class="col-4 justify-self-end">
+                                    <p class="ms-100%">Tanggal : <?php echo $data['tanggal']; ?></p>
+                                  </div>
+
+                                </div>
+
+
+                                <div class="table-responsive">
+                                  <table class="table table-bordered align-middle" id="dataTable" width="100%"
+                                    cellspacing="0">
+                                    <thead>
+
+                                      <tr>
+                                        <th>No</th>
+                                        <th>Ukuran</th>
+                                        <th>Bahan</th>
+                                        <th>Quantity</th>
+                                        <th>Harga satuan</th>
+                                        <th>Uang muka</th>
+                                        <th>Total Harga</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody style="font-size: 15px;">
+                                      <?php
+                                        $nomor = 1;
+                                        ?>
+                                      <tr>
+                                        <td><?php echo $nomor++; ?></td>
+                                        <td>
+                                          <?= $data['ukuran_panjang'] . " x " . $data['ukuran_lebar'] . " x " . $data['ukuran_tinggi'] ?>
+                                        </td>
+                                        <td>
+                                          <?= $data['nama_bahan']; ?>
+                                        </td>
+                                        <td>
+                                          <?php echo $data['quantity']; ?>
+                                        </td>
+                                        <td><?php echo "Rp. " . number_format($data['harga_satuan']); ?>
+                                        </td>
+                                        <td><?php echo "Rp. " . number_format($data['total_harga']); ?>
+                                        </td>
+                                        <td><?php echo "Rp. " . number_format($data['total_harga']); ?>
+
+                                      </tr>
+
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
                     </td>
 
                   </tr>

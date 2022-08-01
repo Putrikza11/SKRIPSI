@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 
 <body>
-    <?php
+  <?php
     // buat function rumus menghitung ukuran master
     // function rumus($input_ukuran){
     //     //ambil data dari form input ukuran masukin ke variabel
@@ -24,14 +24,14 @@
     // }
 
     $harga_bahan = 6500;
-    $panjang = 18;
-    $lebar = 11;
-    $tinggi = 5;
-    $full_color = 150000 ;
+    $panjang = 22;
+    $lebar = 22;
+    $tinggi = 8;
+    $full_color = 150000;
     $laminasi = 0;
-    $qty = 1000;
-    $panjang_ukuran_kertas = 36;
-    $lebar_ukuran_kertas = 39.5;
+    $qty = 500;
+    $panjang_ukuran_kertas = 39.5;
+    $lebar_ukuran_kertas = 54;
     $satuan_warna = 60;
 
     //rumus mencari p x l potongan kertas
@@ -46,7 +46,7 @@
     echo "<br />";
 
     //hitung harga bahan
-    $bahan = $harga_bahan / 6;
+    $bahan = $harga_bahan / 4;
     echo round($bahan);
     echo "<br />";
     $total_bahan = $bahan * ($qty + 150);
@@ -82,7 +82,7 @@
     echo "<br />";
 
     //hitung satuan harga
-    $harga = ($hpp * 110 / 100)  / $qty;
+    $harga = ($hpp * 125 / 100)  / $qty;
     // echo $laba;
     echo "<br />";
     echo "<p> harga satuan Rp." . number_format(ceil($harga)) . "/pcs </p>";
