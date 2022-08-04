@@ -61,8 +61,6 @@ if (isset($_POST['uploadFoto'])) {
 
 
                   $query = mysqli_query($conn, "SELECT * FROM transaksi INNER JOIN
-                                                warna ON transaksi.id_warna = warna.id INNER JOIN
-                                                laminasi ON transaksi.id_laminasi = laminasi.id INNER JOIN 
                                                 bahan ON transaksi.id_bahan=bahan.id
                                                 WHERE id_user='$id_user' ");
                   while ($data = mysqli_fetch_array($query)) {
@@ -138,6 +136,7 @@ if (isset($_POST['uploadFoto'])) {
                                     <tbody style="font-size: 15px;">
                                       <?php
                                         $nomor = 1;
+                                        // $dp=$data['total_harga']/2; 
                                         ?>
                                       <tr>
                                         <td><?php echo $nomor++; ?></td>
@@ -152,7 +151,7 @@ if (isset($_POST['uploadFoto'])) {
                                         </td>
                                         <td><?php echo "Rp. " . number_format($data['harga_satuan']); ?>
                                         </td>
-                                        <td><?php echo "Rp. " . number_format($data['total_harga']); ?>
+                                        <td><?php echo "Rp. " . number_format($data['total_harga'] / 2); ?>
                                         </td>
                                         <td><?php echo "Rp. " . number_format($data['total_harga']); ?>
 
@@ -179,6 +178,14 @@ if (isset($_POST['uploadFoto'])) {
                         </div>
                       </div>
                     </td>
+                    <?php
+                      $transaksi = mysqli_query($conn, "SELECT lunas FROM transaksi WHERE id_transaksi=$data[id_transaksi]");
+
+                      $trans = mysqli_fetch_assoc($transaksi);
+
+                      $_SESSION['lunas'] = $trans['lunas'];
+
+                      if ($_SESSION['lunas']) : ?>
                     <td>
                       <button class="btn btn-outline-secondary btn-sm h-12" data-bs-toggle="modal"
                         data-bs-target="#nota-<?= $data['id_transaksi'] ?>">
@@ -222,39 +229,51 @@ if (isset($_POST['uploadFoto'])) {
                                     </thead>
                                     <tbody style="font-size: 15px;">
                                       <?php
-                                        $nomor = 1;
-                                        ?>
+                                          $nomor = 1;
+                                          $nota = mysqli_query($conn, "SELECT * FROM transaksi INNER JOIN
+                      warna ON transaksi.id_warna = warna.id INNER JOIN
+                      laminasi ON transaksi.id_laminasi = laminasi.id INNER JOIN
+                      bahan ON transaksi.id_bahan=bahan.id
+                      WHERE id_user='$id_user' ");
+                                          $data_nota = mysqli_fetch_array($nota)
+                                          ?>
                                       <tr>
                                         <td><?php echo $nomor++; ?></td>
                                         <td>Box
-                                          <?= $data['ukuran_panjang'] . " x " . $data['ukuran_lebar'] . " x " . $data['ukuran_tinggi'] ?>
-                                          <br> <?= $data['nama_bahan']; ?>
+                                          <?= $data_nota['ukuran_panjang'] . " x " . $data_nota['ukuran_lebar'] . " x " . $data_nota['ukuran_tinggi'] ?>
+                                          <br> <?= $data_nota['nama_bahan']; ?>
                                           <br>
-                                          <?= $data['jenis_warna']; ?>
+                                          <?= $data_nota['jenis_warna']; ?>
                                           <br>
-                                          <?= $data['jenis_laminasi']; ?>
+                                          <?= $data_nota['jenis_laminasi']; ?>
                                         </td>
                                         <td>
-                                          <?php echo $data['quantity']; ?>
+                                          <?php echo $data_nota['quantity']; ?>
                                         </td>
-                                        <td><?php echo "Rp. " . number_format($data['harga_satuan']); ?>
+                                        <td><?php echo "Rp. " . number_format($data_nota['harga_satuan']); ?>
                                         </td>
-                                        <td><?php echo "Rp. " . number_format($data['total_harga']); ?>
+                                        <td><?php echo "Rp. " . number_format($data_nota['total_harga']); ?>
 
                                       </tr>
 
                                     </tbody>
                                   </table>
+                                  <div class="d-block ml-auto w-40 h-32 pt-3">
+                                    <img src="./asset/img/ttd.jpg" alt="">
+                                    <span style="padding: 10px 0 0 50px ;">Syahrani</span>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                            <div class="modal-footer">
+
+                            <div class=" modal-footer">
                               <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             </div>
                           </div>
                         </div>
                       </div>
                     </td>
+                    <?php endif; ?>
                     </td>
 
                   </tr>

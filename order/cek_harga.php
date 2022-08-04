@@ -125,29 +125,11 @@ if (isset($_POST['inputPanjang'])) {
         $hargaSatuan = $totalHarga  / $quantity;
         
         echo "
-         <span>
-            Total Bahan : Rp. " . $panjangMaster . "
-        </span> <br>
-         <span>
-            Total Bahan : Rp. " . $lebarMaster. "
-        </span> <br>
-        <span>
-            Total Bahan : Rp. " . number_format(ceil($totalHargaBahan)) . "
-        </span> <br>
-        <span>
-            Total Warna : Rp. " . number_format(ceil($totalHargaWarna)) . "
-        </span> <br>
-        <span>
-            Total laminasi  : Rp. " . number_format(ceil($laminasi)) . "
-        </span> <br>
-        <span>
-            Total HPP : Rp. " . number_format(ceil($hpp)) . "
-        </span> <br>
         <span>
             Total Harga : Rp. " . number_format(ceil($totalHarga)) . "
         </span> <br>
         <span>  Rp." . number_format(ceil($hargaSatuan)) . "/pcs
-         </span>
+        </span>
         ";
     }
 }

@@ -37,7 +37,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/conn/koneksi.php');
               <div class="row mb-3">
                 <div class="col-md-8">
                   <label for="inputBrand" class="form-label">Nama Brand</label>
-                  <input type="text" required class="form-control" name="namaBrand" id="inputNamaBrand"
+                  <input type="text" class="form-control" name="namaBrand" id="inputNamaBrand"
                     placeholder="Exp : BrownieCake">
                 </div>
 
